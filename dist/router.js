@@ -122,15 +122,20 @@
           var deckEls = Array.from(document.querySelectorAll('#logo .char'))
                           .concat(Array.from(document.querySelectorAll('.deck-card')));
           gsap.getTweensOf(deckEls).forEach(function (t) { try { t.progress(1); } catch (e) {} });
-          if (pageEl) {
-            var pageEls = Array.from(pageEl.querySelectorAll('.page-title .char, .page-eyebrow, .block'));
-            gsap.getTweensOf(pageEls).forEach(function (t) { try { t.progress(1); } catch (e) {} });
-          }
         }
         document.body.classList.add('viewing');
         if (stageEl) stageEl.style.display = 'none';
       } finally { driving = false; }
       current = initialKey;
+
+      setTimeout(function () {
+        if (!window.gsap || !pageEl) return;
+        var sample = pageEl.querySelector('.page-title .char');
+        if (sample && parseFloat(getComputedStyle(sample).opacity) < 0.05) {
+          gsap.set(Array.from(pageEl.querySelectorAll('.page-title .char, .page-eyebrow, .block')),
+            { opacity: 1, x: 0, y: 0, rotation: 0, scale: 1 });
+        }
+      }, 900);
     }
   }
 })();
