@@ -109,56 +109,28 @@
   current = initialKey;
 
   if (initialKey) {
-
     var stageEl = document.getElementById('stage');
     if (stageEl) stageEl.style.display = 'none';
 
-    var realMatchMedia = window.matchMedia;
-    var reducedStub = {
-      matches: true, media: '(prefers-reduced-motion: reduce)', onchange: null,
-      addEventListener: function () {}, removeEventListener: function () {},
-      addListener: function () {}, removeListener: function () {},
-      dispatchEvent: function () { return false; }
-    };
-    try {
-      window.matchMedia = function (q) {
-        if (/prefers-reduced-motion/.test(String(q))) return reducedStub;
-        return realMatchMedia.call(window, q);
-      };
-    } catch (err) {  }
-
-    var opened = false;
-    var openOnce = function () {
-      if (opened) return;
-      opened = true;
-
-      try { window.matchMedia = realMatchMedia; } catch (e) {}
-
-      setTimeout(function () {
-        var c = cardFor(initialKey);
-        if (!c) return;
-        driving = true;
-        try {
-          c.click();
-
-          if (window.gsap) {
-            var deckEls = Array.from(document.querySelectorAll('#logo .char'))
-                            .concat(Array.from(document.querySelectorAll('.deck-card')));
-            gsap.getTweensOf(deckEls).forEach(function (t) { try { t.progress(1); } catch (e) {} });
+    var pageEl = document.getElementById('page');
+    var c = cardFor(initialKey);
+    if (c) {
+      driving = true;
+      try {
+        c.click();
+        if (window.gsap) {
+          var deckEls = Array.from(document.querySelectorAll('#logo .char'))
+                          .concat(Array.from(document.querySelectorAll('.deck-card')));
+          gsap.getTweensOf(deckEls).forEach(function (t) { try { t.progress(1); } catch (e) {} });
+          if (pageEl) {
+            var pageEls = Array.from(pageEl.querySelectorAll('.page-title .char, .page-eyebrow, .block'));
+            gsap.getTweensOf(pageEls).forEach(function (t) { try { t.progress(1); } catch (e) {} });
           }
-        } finally { driving = false; }
-        current = initialKey;
-      }, 0);
-    };
-
-    if (document.fonts && document.fonts.ready) {
-      Promise.race([
-        document.fonts.ready,
-        new Promise(function (r) { setTimeout(r, 950); })
-      ]).then(openOnce);
-    } else {
-
-      setTimeout(openOnce, 60);
+        }
+        document.body.classList.add('viewing');
+        if (stageEl) stageEl.style.display = 'none';
+      } finally { driving = false; }
+      current = initialKey;
     }
   }
 })();
