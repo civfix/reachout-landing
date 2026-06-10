@@ -1,0 +1,8 @@
+# https://reachoutlosangeles.org/robots.txt
+User-agent: *
+Allow: /
+
+# Internal state file used by the in-page image editor — not content.
+Disallow: /.image-slots.state.json
+
+Sitemap: https://www.reachoutla.org/sitemap.xml

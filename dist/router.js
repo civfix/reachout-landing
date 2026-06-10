@@ -4,9 +4,17 @@
   var ROUTES = { about: 'about', mission: 'mission', civfix: 'civfix', help: 'help' };
 
   var SITE_TITLE = 'Reach Out LA';
-  var TITLES = { about: 'About', mission: 'Mission', civfix: 'Civfix', help: 'Help Us' };
+  // Full <title> strings, kept in sync with each page's static <title> so the
+  // title Google renders (JS runs) matches the server-sent HTML — no SEO mismatch.
+  var HOME_TITLE = 'Reach Out LA';
+  var TITLES = {
+    about:   'About | ' + SITE_TITLE,
+    mission: 'Mission| ' + SITE_TITLE,
+    civfix:  'Civfix | ' + SITE_TITLE,
+    help:    'Help Us | ' + SITE_TITLE
+  };
   function setTitle(key) {
-    document.title = (key && TITLES[key]) ? TITLES[key] + ' | ' + SITE_TITLE : SITE_TITLE;
+    document.title = (key && TITLES[key]) ? TITLES[key] : HOME_TITLE;
   }
 
   function keyFromPath(path) {
