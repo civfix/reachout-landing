@@ -374,6 +374,24 @@
     if (e.key === 'Escape' && pageActive) closePage();
   });
 
+  // The browser freezes requestAnimationFrame (and therefore GSAP's ticker)
+  // while the tab is in the background. Letters and cards default to opacity:0
+  // in CSS and are only revealed by GSAP, so leaving the tab mid-reveal can
+  // strand them invisible. On return, finish the entrance if it never ran and
+  // fast-forward any in-flight reveal to its end so the visible state is
+  // always restored (progress(1) also fires the callbacks that settle state).
+  const settleVisible = () => {
+    if (!window.gsap) return;
+    if (!entered) finishEntrance();
+    const els = chars.concat(cards,
+      page ? Array.from(page.querySelectorAll('.page-title .char, .page-eyebrow, .block')) : []);
+    gsap.getTweensOf(els).forEach(t => { try { t.progress(1); } catch (e) {} });
+  };
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') settleVisible();
+  });
+  window.addEventListener('pageshow', e => { if (e.persisted) settleVisible(); });
+
   function boot() {
     styleChars(chars);
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

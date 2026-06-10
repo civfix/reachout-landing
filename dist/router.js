@@ -3,6 +3,12 @@
 
   var ROUTES = { about: 'about', mission: 'mission', civfix: 'civfix', help: 'help' };
 
+  var SITE_TITLE = 'Reach Out LA';
+  var TITLES = { about: 'About', mission: 'Mission', civfix: 'Civfix', help: 'Help Us' };
+  function setTitle(key) {
+    document.title = (key && TITLES[key]) ? TITLES[key] + ' | ' + SITE_TITLE : SITE_TITLE;
+  }
+
   function keyFromPath(path) {
     var seg = (path || '/').replace(/^\/+|\/+$/g, '').split('/')[0].toLowerCase();
     return ROUTES[seg] || null;
@@ -54,11 +60,13 @@
     if (!c) return;
     drive(function () { c.click(); });
     current = key;
+    setTitle(key);
   }
   function showHome() {
     backFallOut();
     drive(function () { if (backBtn) backBtn.click(); });
     current = null;
+    setTitle(null);
   }
 
   document.addEventListener('click', function (e) {
@@ -72,12 +80,14 @@
       if (ROUTES[key] && current !== key) {
         current = key;
         history.pushState({ key: key }, '', pathFromKey(key));
+        setTitle(key);
       }
       return;
     }
     if (t.closest('#pageBack') && current !== null) {
       current = null;
       history.pushState({ key: null }, '', '/');
+      setTitle(null);
       backFallOut();
     }
   }, true);
@@ -86,6 +96,7 @@
     if (e.key === 'Escape' && !driving && current !== null) {
       current = null;
       history.pushState({ key: null }, '', '/');
+      setTitle(null);
       backFallOut();
     }
   });
@@ -107,6 +118,7 @@
 
   history.replaceState({ key: initialKey }, '', pathFromKey(initialKey));
   current = initialKey;
+  setTitle(initialKey);
 
   if (initialKey) {
     var stageEl = document.getElementById('stage');
