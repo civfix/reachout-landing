@@ -68,7 +68,7 @@ window.ROLA_CONTENT = {
 
         { heading: "Get in touch", paras: [
           "Have a business inquiry or proposition for us? Wanting to volunteer? Send us an email and we'll get back to you as soon as possible!"
-        ], button: { label: "Contact us", href: "mailto:hello@reachoutlosangeles.org" } }
+        ], button: { label: "Contact us", href: "mailto:hello@reachoutla.org" } }
 
       ]}
     ]
