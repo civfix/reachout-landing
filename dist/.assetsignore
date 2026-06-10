@@ -1,7 +1,0 @@
-# Files Wrangler must NOT publish as public, downloadable static assets.
-# _worker.js is this project's Pages Advanced-mode worker (see README) — it must run AS
-# the worker, not be served at /_worker.js. Excluding it here still lets Pages use it as
-# the worker. Without this file, `wrangler pages deploy` aborts with:
-#   "Uploading a Pages _worker.js file as an asset."
-_worker.js
-.assetsignore
