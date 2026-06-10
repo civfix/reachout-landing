@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+  <meta name="description" content="reach out la" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>reach out la</title>
+</head>
+<body>
+  <div class="stage" id="stage">
+
+    <div class="logo" id="logo" aria-label="Reach Out LA"><span class="char">R</span><span class="char">e</span><span class="char">a</span><span class="char">c</span><span class="char">h</span><span class="space"></span><span class="char">O</span><span class="char">u</span><span class="char">t</span><span class="space"></span><span class="char">L</span><span class="char">A</span></div>
+
+    <div class="deck" id="deck">
+      <div class="deck-card" data-key="about" data-rot="-3">
+        <div class="deck-inner">
+          <div class="deck-photo about"></div>
+          <div class="deck-grain"></div>
+          <div class="deck-scrim"></div>
+          <div class="deck-label">
+            <div class="deck-title">About</div>
+            <div class="deck-sub">Who we are <span class="arrow">&#8594;</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="deck-card" data-key="mission" data-rot="2.2">
+        <div class="deck-inner">
+          <div class="deck-photo mission"></div>
+          <div class="deck-grain"></div>
+          <div class="deck-scrim"></div>
+          <div class="deck-label">
+            <div class="deck-title">Mission</div>
+            <div class="deck-sub">Our motivations <span class="arrow">&#8594;</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="deck-card" data-key="civfix" data-rot="-2.2">
+        <div class="deck-inner">
+          <div class="deck-photo civfix"></div>
+          <div class="deck-grain"></div>
+          <div class="deck-scrim"></div>
+          <div class="deck-label">
+            <div class="deck-title">Civfix</div>
+            <div class="deck-sub">The app we built <span class="arrow">&#8594;</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="deck-card" data-key="help" data-rot="3">
+        <div class="deck-inner">
+          <div class="deck-photo help"></div>
+          <div class="deck-grain"></div>
+          <div class="deck-scrim"></div>
+          <div class="deck-label">
+            <div class="deck-title">Help Us</div>
+            <div class="deck-sub">Donate or contact <span class="arrow">&#8594;</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" id="footer">
+    a registered 501(&#8204;c)(3) non&#8209;profit organization based out of Los Angeles
+  </div>
+
+  <button class="page-back" id="pageBack" aria-label="Back to home">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+    <span>Back</span>
+  </button>
+
+  <main class="page" id="page"></main>
+
+  <script src="image-slot.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+
+  <script src="router.js"></script>
+</body>
+</html>
