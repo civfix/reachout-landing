@@ -492,8 +492,30 @@ image-slot.shot { width: 100%; height: 100%; }
   text-transform: uppercase;
   color: var(--bb-coral);
 }
+.bio-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.bio-email {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(28px, 2.3vw, 32px);
+  height: clamp(28px, 2.3vw, 32px);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--bb-coral) 12%, var(--card));
+  color: var(--bb-coral);
+  border: 1px solid color-mix(in oklab, var(--bb-coral) 22%, transparent);
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.bio-email svg { width: 54%; height: 54%; display: block; }
+.bio-email:hover { background: var(--bb-coral); color: #fff; transform: translateY(-1px); }
 .bio-body p {
-  margin: clamp(12px, 1.6vh, 16px) 0 0;
+  margin: clamp(6px, 0.8vh, 9px) 0 0;
   font-size: clamp(15px, 1.05vw, 17px);
   line-height: 1.6;
   color: var(--ink-2);

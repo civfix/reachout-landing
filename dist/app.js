@@ -219,7 +219,10 @@
                   slot(m.slot, { cls: 'shot', radius: 18, ph: 'Headshot', src: m.src }) +
                 `</div>` +
                 `<div class="bio-body">` +
-                  `<div class="bio-name">${m.name}</div>` +
+                  `<div class="bio-head">` +
+                    `<div class="bio-name">${m.name}</div>` +
+                    (m.email ? `<a class="bio-email" href="mailto:${m.email}" aria-label="Email ${m.name}" title="${m.email}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>` : '') +
+                  `</div>` +
                   `<div class="bio-role">${m.role}</div>` +
                   paras(m.bio) +
                 `</div>` +
