@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-c", "import http.server as h, socketserver as s, os\nos.chdir('dist')\no=h.SimpleHTTPRequestHandler.end_headers\ndef e(self):\n self.send_header('Cache-Control','no-store, max-age=0')\n o(self)\nh.SimpleHTTPRequestHandler.end_headers=e\ns.TCPServer.allow_reuse_address=True\ns.TCPServer(('',8788),h.SimpleHTTPRequestHandler).serve_forever()"],
+      "port": 8788
+    }
+  ]
+}

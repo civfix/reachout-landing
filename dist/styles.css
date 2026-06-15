@@ -102,7 +102,7 @@ body::before {
   user-select: none;
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: flex-end;
   flex-wrap: nowrap;
   white-space: nowrap;
 }
@@ -110,17 +110,19 @@ body::before {
 .space { width: clamp(14px, 3vw, 50px); flex: 0 0 auto; }
 
 .char {
-  display: inline-block;
-  font-family: var(--font-round);
-  font-weight: 800;
-  font-size: calc(var(--base) * var(--k, 1));
-  line-height: 1;
-  letter-spacing: 0;
-  padding: 0 clamp(0px, 0.12vw, 2px);
+  display: block;
+  padding: 0 clamp(0px, 0.2vw, 4px);
   transform-origin: center bottom;
   opacity: 0;
   will-change: transform, opacity;
-  -webkit-text-stroke: 0;
+}
+.char .glyph {
+  display: block;
+  height: calc(var(--base) * var(--gh, 0.942));
+  width: auto;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .deck {
@@ -268,7 +270,7 @@ body.viewing .page { display: block; }
   --base: clamp(52px, 9vw, 116px);
   display: flex;
   justify-content: flex-start;
-  align-items: baseline;
+  align-items: flex-end;
   flex-wrap: nowrap;
   white-space: nowrap;
   margin: 0;

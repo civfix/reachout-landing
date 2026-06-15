@@ -118,37 +118,23 @@
 
   function start() { if (!running) { running = true; step(); } }
 
-  const PALETTE = ['#ff6361', '#fed406', '#69cefa', '#45d264', '#fda006'];
-
-  function colorizeEls(els) {
-    els.forEach((c, i) => { c.style.color = PALETTE[i % PALETTE.length]; });
-  }
-
-  function inkMeasurer() {
-    const ctx = document.createElement('canvas').getContext('2d');
-    const REF = 200;
-    const fam = getComputedStyle(document.body).getPropertyValue('--font-round') || "'Baloo 2', sans-serif";
-    return ch => {
-      ctx.font = `800 ${REF}px ${fam}`;
-      const m = ctx.measureText(ch);
-      return (m.actualBoundingBoxAscent || 0) + (m.actualBoundingBoxDescent || 0);
-    };
-  }
-
-  function normalizeEls(els) {
-    const ink = inkMeasurer();
-    const cap = ink('R') || 144;
-    const xh = ink('o') || 112;
-    const kLower = cap / xh;
-    els.forEach(c => {
-      const ch = c.textContent;
-      const isUpper = ch === ch.toUpperCase() && ch !== ch.toLowerCase();
-      const k = isUpper ? (cap / (ink(ch) || cap)) : kLower;
-      c.style.setProperty('--k', k.toFixed(4));
+  // Replace each letter span's text with its Hollywood-Sign 3-D glyph SVG.
+  // Always renders uppercase; the original char is kept as alt text for a11y.
+  function glyphify(els) {
+    els.forEach(el => {
+      if (el.dataset.glyphed) return;
+      const ch = el.textContent;
+      const img = document.createElement('img');
+      img.className = 'glyph';
+      img.src = 'letters/' + ch.toUpperCase() + '.svg';
+      img.alt = ch;
+      img.draggable = false;
+      img.addEventListener('load', () => { if (entered && !pageActive) remeasure(); });
+      el.textContent = '';
+      el.appendChild(img);
+      el.dataset.glyphed = '1';
     });
   }
-
-  function styleChars(els) { colorizeEls(els); normalizeEls(els); }
 
   window.addEventListener('mousemove', e => {
     if (pageActive) return;
@@ -297,7 +283,7 @@
 
   function revealPage(my) {
     const titleChars = Array.from(page.querySelectorAll('.page-title .char'));
-    styleChars(titleChars);
+    glyphify(titleChars);
     const head = [page.querySelector('.page-eyebrow')];
     const blocks = Array.from(page.querySelectorAll('.block'));
 
@@ -396,7 +382,7 @@
   window.addEventListener('pageshow', e => { if (e.persisted) settleVisible(); });
 
   function boot() {
-    styleChars(chars);
+    glyphify(chars);
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       gsap.set(chars, { y: 0, opacity: 1, rotation: 0, scale: 1 });
       gsap.set(cards, { y: 0, opacity: 1, rotation: 0, scale: 1 });
