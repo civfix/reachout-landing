@@ -118,85 +118,22 @@
 
   function start() { if (!running) { running = true; step(); } }
 
-  // ---- Hollywood-sign glyphs with a continuous LA-map face -------------------
-  // Each letter is rendered as an INLINE svg (not <img>) so every glyph can pull
-  // from ONE shared map image. A letter's map crop is offset by its cumulative
-  // position along the line, so adjacent letters line up into a single, zoomed-in
-  // map that reads continuously across the whole word. Renders uppercase; the
-  // letter is kept on the span (aria-label + data-ch) for a11y / re-runs.
-  const GLYPH_SET = 'ABCEFHILMNOPRSTUVX';
-  const glyphTpl = {};            // ch -> { raw, W }
-  let glyphSeq = 0;
-
-  const MAP_SRC = 'images/la-map.webp';
-  const MAP_W = 816, MAP_H = 527; // intrinsic source size (for aspect only)
-  const MAP_ZOOM = 1.35;          // 1 = whole map spread across a line; >1 zooms into its centre strip
-  const MAP_CENTER_Y = 0.52;      // which horizontal band of the map shows through the faces (0 top .. 1 bottom)
-  const MAP_OPACITY = 0.95;
-  const SPACE_UNITS = 30;         // continuity width charged to a word space, in glyph units
-  const FACE_CY = 42;             // approx vertical centre of a letter face, in viewBox units
-
-  const templatesReady = Promise.all([...GLYPH_SET].map(ch =>
-    fetch('letters/' + ch + '.svg').then(r => r.text()).then(t => {
-      const m = t.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
-      glyphTpl[ch] = { raw: t, W: m ? parseFloat(m[1]) : 60 };
-    })
-  ));
-
-  function buildGlyphSVG(ch, leftUnits, bandUnits) {
-    const tpl = glyphTpl[ch];
-    if (!tpl) return null;
-    const k = ++glyphSeq;
-    let s = tpl.raw;
-    ['g', 'clip', 'sil', 'face'].forEach(id => {       // namespace ids: inlined svgs must not share url(#id)
-      s = s.split('id="' + id + '"').join('id="' + id + '-' + k + '"')
-           .split('href="#' + id + '"').join('href="#' + id + '-' + k + '"')
-           .split('url(#' + id + ')').join('url(#' + id + '-' + k + ')');
-    });
-    const spanPx = MAP_W / MAP_ZOOM;        // map px spread across the whole line
-    const startPx = (MAP_W - spanPx) / 2;   // centre the used strip when zoomed in
-    const mppu = spanPx / bandUnits;        // map px per glyph unit (identical for every letter)
-    const imgW = MAP_W / mppu;              // the full map, expressed in this glyph's units
-    const imgH = MAP_H / mppu;
-    const x = -(startPx / mppu) - leftUnits;
-    const y = FACE_CY - MAP_CENTER_Y * imgH;
-    const img = '<image class="map" x="' + x.toFixed(2) + '" y="' + y.toFixed(2) +
-                '" width="' + imgW.toFixed(2) + '" height="' + imgH.toFixed(2) +
-                '" preserveAspectRatio="none" clip-path="url(#clip-' + k + ')" opacity="' +
-                MAP_OPACITY + '" href="' + MAP_SRC + '"/>';
-    const grid = '<g clip-path="url(#clip-' + k + ')" stroke="#CFC8BA"';   // map sits over the face, under the grid
-    const i = s.indexOf(grid);
-    s = i >= 0 ? s.slice(0, i) + img + s.slice(i) : s.replace('</svg>', img + '</svg>');
-    return s.replace('<svg ', '<svg class="glyph" ').replace(/ width="[\d.]+" height="[\d.]+"/, '');
-  }
-
-  function glyphifyLine(container) {
-    if (!container) return;
-    let band = 0;                                       // cumulative width of the line, in glyph units
-    const items = Array.from(container.children).map(el => {
-      if (el.classList.contains('char')) {
-        const ch = (el.dataset.ch || el.textContent || '').trim().toUpperCase();
-        const left = band; band += (glyphTpl[ch] ? glyphTpl[ch].W : 60);
-        return { el, ch, left };
-      }
-      band += SPACE_UNITS; return null;
-    });
-    items.forEach(it => {
-      if (!it) return;
-      const svg = buildGlyphSVG(it.ch, it.left, band);
-      if (svg == null) return;
-      it.el.dataset.ch = it.ch;
-      it.el.innerHTML = svg;
-      it.el.dataset.glyphed = '1';
-    });
-    if (entered && !pageActive) remeasure();
-  }
-
-  // Back-compat: glyphify(els) -> rebuild whichever line(s) those els belong to.
+  // Replace each letter span's text with its Hollywood-Sign 3-D glyph SVG.
+  // Always renders uppercase; the original char is kept as alt text for a11y.
   function glyphify(els) {
-    const lines = new Set();
-    els.forEach(el => { if (el.parentElement) lines.add(el.parentElement); });
-    lines.forEach(glyphifyLine);
+    els.forEach(el => {
+      if (el.dataset.glyphed) return;
+      const ch = el.textContent;
+      const img = document.createElement('img');
+      img.className = 'glyph';
+      img.src = 'letters/' + ch.toUpperCase() + '.svg';
+      img.alt = ch;
+      img.draggable = false;
+      img.addEventListener('load', () => { if (entered && !pageActive) remeasure(); });
+      el.textContent = '';
+      el.appendChild(img);
+      el.dataset.glyphed = '1';
+    });
   }
 
   window.addEventListener('mousemove', e => {
@@ -445,7 +382,7 @@
   window.addEventListener('pageshow', e => { if (e.persisted) settleVisible(); });
 
   function boot() {
-    glyphifyLine(document.getElementById('logo'));
+    glyphify(chars);
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       gsap.set(chars, { y: 0, opacity: 1, rotation: 0, scale: 1 });
       gsap.set(cards, { y: 0, opacity: 1, rotation: 0, scale: 1 });
@@ -457,8 +394,9 @@
     }
   }
 
-  const fontsReady = (document.fonts && document.fonts.ready)
-    ? Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 900))])
-    : Promise.resolve();
-  Promise.all([fontsReady, templatesReady]).then(boot);
+  if (document.fonts && document.fonts.ready) {
+    Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 900))]).then(boot);
+  } else {
+    boot();
+  }
 })();
