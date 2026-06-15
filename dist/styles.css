@@ -111,7 +111,7 @@ body::before {
 
 .char {
   display: block;
-  padding: 0 clamp(0px, 0.2vw, 4px);
+  padding: 0;
   transform-origin: center bottom;
   opacity: 0;
   will-change: transform, opacity;
