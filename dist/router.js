@@ -9,7 +9,7 @@
   var HOME_TITLE = 'Reach Out LA';
   var TITLES = {
     about:   'About | ' + SITE_TITLE,
-    mission: 'Mission| ' + SITE_TITLE,
+    mission: 'Mission | ' + SITE_TITLE,
     civfix:  'Civfix | ' + SITE_TITLE,
     help:    'Help Us | ' + SITE_TITLE
   };
