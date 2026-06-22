@@ -64,7 +64,7 @@ window.ROLA_CONTENT = {
         { heading: "Donate", paras: [
           "Every dollar donated goes directly into innovation and research working towards beautifying our streets, improving civic infrastructure, and aiding individuals in need. Through the development of our app, Civfix, along with conducting ground-level research, we bring real data and human stories to local governments. Your contribution helps to keep our team innovating!",
           "Reach Out Los Angeles is a 501<span style='font-variant-ligatures:none;font-feature-settings:\"liga\" 0'>(c)</span>(3) nonprofit organization and your donation is 100% tax deductible. Every contribution, regardless of size, is an investment in a future where every community has the tools it needs to thrive."
-        ], button: { label: "Donate", notice: "Donations under construction, please contact us via email to donate!" } },
+        ], button: { label: "Donate", href: "https://buy.stripe.com/14A5kC47b7XLa85fvZ9Zm00" } },
 
         { heading: "Get in touch", paras: [
           "Have a business inquiry or proposition for us? Wanting to volunteer? Send us an email and we'll get back to you as soon as possible!"
