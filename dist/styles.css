@@ -177,7 +177,15 @@ body::before {
 
 .deck-photo.about   { background-color: #e8556a; background-image: url("images/card-about.webp"); }
 .deck-photo.mission { background-color: #3a9a59; background-image: url("images/card-mission.webp"); }
-.deck-photo.civfix  { background-color: #6f74d8; background-image: url("images/card-civfix2.webp"); }
+.deck-photo.civfix  {
+  background-color: #f5f6f6;
+  background-image: url("images/card-civfix-logo.png");
+  background-size: contain;
+  background-position: center;
+  inset: 0;
+  filter: none;
+  transform: none;
+}
 .deck-photo.help    { background-color: #e58a3a; background-image: url("images/card-help.webp"); }
 
 .deck-scrim {
