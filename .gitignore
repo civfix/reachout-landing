@@ -1,0 +1,17 @@
+# Files git must never save or upload. This repo is PUBLIC.
+
+# Local secrets for `wrangler pages dev` (Stripe keys etc.)
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.env
+.env.*
+
+# Wrangler's local working files
+.wrangler/
+
+# Installed packages
+node_modules/
+
+# macOS clutter
+.DS_Store

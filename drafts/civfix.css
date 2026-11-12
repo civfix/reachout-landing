@@ -1,0 +1,211 @@
+/* ==========================================================
+   Civfix page DRAFT — extra styles on top of home.css
+   A street map of Los Angeles taped to the board, covered in
+   (example) report and cleanup pins, with notes around it.
+   ========================================================== */
+
+/* ---------- Intro ---------- */
+.cf-intro {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-top: clamp(36px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: clamp(28px, 4vw, 52px);
+  align-items: end;
+}
+.cf-intro .label { font-size: clamp(2.4rem, 6vw, 3.4rem); }
+.cf-lead-note .lead { font-size: clamp(1.35rem, 2.6vw, 1.65rem); font-weight: 800; line-height: 1.3; }
+
+.get-app h2 { font-size: 1.75rem; margin-bottom: 6px; }
+.badges { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.badges a { display: inline-block; border-radius: 8px; }
+.badges img { height: 40px; width: auto; }
+
+/* ---------- Map section ---------- */
+.cf-map-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: clamp(56px, 7vw, 88px);
+}
+.map-label { margin-left: auto; margin-right: auto; }
+
+.cf-map-layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) minmax(0, 640px) minmax(200px, 260px);
+  justify-content: center;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+.cf-side { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 44px); padding-top: 24px; }
+.cf-side--right { padding-top: 140px; }
+
+/* The map itself: a sheet of paper taped at the corners */
+.map-paper {
+  position: relative;
+  margin: 0;
+  padding: clamp(10px, 1.6vw, 18px) clamp(10px, 1.6vw, 18px) 10px;
+  background: #FBF6EA;
+  box-shadow: var(--shadow), inset 0 0 40px rgba(160, 130, 90, .12);
+  transform: rotate(-0.5deg);
+}
+.map-wrap { position: relative; }
+.map-img { width: 100%; height: auto; }
+
+.tape-corner {
+  position: absolute;
+  width: 74px; height: 24px;
+  background: var(--tape);
+  box-shadow: 0 1px 2px rgba(45,25,8,.15);
+  z-index: 3;
+}
+.tape-corner--tl { top: -8px;  left: -22px;  transform: rotate(-38deg); }
+.tape-corner--tr { top: -8px;  right: -22px; transform: rotate(38deg); }
+.tape-corner--bl { bottom: -8px; left: -22px;  transform: rotate(38deg); }
+.tape-corner--br { bottom: -8px; right: -22px; transform: rotate(-38deg); }
+
+.map-paper figcaption {
+  margin-top: 8px;
+  font-size: .8rem;
+  color: var(--ink-2);
+  text-align: center;
+}
+
+/* ---------- Pins on the map ---------- */
+.map-pins { position: absolute; inset: 0; pointer-events: none; }
+
+.mpin {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 0; height: 0;
+}
+/* the pin head sits just above the exact spot, like a push-pin stuck into the map */
+.mpin::before {
+  content: "";
+  position: absolute;
+  left: -7px; top: -16px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 32%, rgba(255,255,255,.8) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 50% 50%, var(--pc) 0 58%, rgba(0,0,0,.35) 100%);
+  box-shadow: 1px 3px 3px rgba(45,25,8,.45);
+}
+.mpin::after {   /* the needle */
+  content: "";
+  position: absolute;
+  left: -1px; top: -4px;
+  width: 2px; height: 5px;
+  background: rgba(60, 50, 40, .55);
+  border-radius: 1px;
+}
+.mpin--report  { --pc: #E8473B; }
+.mpin--cleanup { --pc: #2E9E57; }
+.mpin--cleanup::before { box-shadow: 0 0 0 2px #fff, 1px 3px 3px rgba(45,25,8,.45); }
+
+/* little paper tag next to some pins */
+.mpin-tag {
+  position: absolute;
+  left: 9px; top: -22px;
+  padding: 1px 6px 2px;
+  background: var(--paper);
+  border: 1px solid rgba(30,26,22,.15);
+  box-shadow: 0 1px 2px rgba(45,25,8,.25);
+  font-size: .68rem;
+  font-weight: 800;
+  white-space: nowrap;
+  color: var(--ink);
+  transform: rotate(-3deg);
+}
+.mpin--cleanup .mpin-tag { color: #1D6B3A; }
+
+/* pins "drop in" when the map scrolls into view */
+@media (prefers-reduced-motion: no-preference) {
+  .map-pins.waiting .mpin { opacity: 0; transform: translateY(-40px); }
+  .map-pins .mpin {
+    transition: opacity .3s ease, transform .55s cubic-bezier(.3, 1.6, .5, 1);
+    transition-delay: var(--d, 0s);
+  }
+}
+
+/* ---------- Legend + numbered steps ---------- */
+.legend { font-size: .95rem; }
+.legend-list { list-style: none; margin: 4px 0 10px; padding: 0; display: grid; gap: 6px; font-weight: 800; }
+.legend-list li { display: flex; align-items: center; gap: 10px; }
+.legend-pin {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, rgba(255,255,255,.8) 0 1.5px, transparent 3px), var(--pc);
+  box-shadow: 1px 2px 2px rgba(45,25,8,.4);
+}
+.legend-pin--report  { --pc: #E8473B; }
+.legend-pin--cleanup { --pc: #2E9E57; box-shadow: 0 0 0 2px #fff, 1px 2px 2px rgba(45,25,8,.4); }
+.legend-note { margin: 0; font-size: .9rem; }
+
+.index-step {
+  position: relative;
+  padding: 18px 18px 16px 18px;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 27px, rgba(80,120,170,.13) 27px 28px);
+  box-shadow: var(--shadow);
+  transform: rotate(var(--tilt, 0deg));
+  font-size: .98rem;
+}
+.index-step h3 { font-size: 1.35rem; margin: 0 0 6px 36px; }
+.index-step p { margin: 0; }
+.step-num {
+  position: absolute;
+  left: 12px; top: 14px;
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--coral);
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 800;
+}
+
+.map-scrap { align-self: flex-start; --tilt: -3deg; }
+
+/* ---------- App screenshots ---------- */
+.shots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 260px));
+  justify-content: center;
+  gap: clamp(24px, 4vw, 48px);
+}
+.shot { padding: 10px 10px 14px; }
+.shot img { aspect-ratio: auto; object-fit: contain; width: 100%; height: auto; border-radius: 10px; }
+.shot-cap { margin: 10px 2px 0; font-size: .9rem; line-height: 1.45; color: var(--ink-2); }
+
+/* ---------- Call to action ---------- */
+.cf-cta-note { max-width: 680px; margin: 0 auto; text-align: center; }
+.cf-cta-note h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+.cf-cta-note .cta-row { justify-content: center; }
+
+/* ---------- Tablet / phone ---------- */
+@media (max-width: 1080px) {
+  .cf-map-layout { grid-template-columns: minmax(0, 640px); }
+  .cf-side { flex-direction: row; flex-wrap: wrap; justify-content: center; padding-top: 0; }
+  .cf-side > * { flex: 1 1 240px; max-width: 320px; }
+  .cf-side--left { order: 2; }
+  .map-paper { order: 1; }
+  .cf-side--right { order: 3; }
+  .map-scrap { display: none; }
+}
+@media (max-width: 760px) {
+  .cf-intro { grid-template-columns: 1fr; }
+  .shots { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .shot { padding: 6px 6px 10px; }
+  .shot-cap { font-size: .75rem; }
+}
+@media (max-width: 520px) {
+  .shots { grid-template-columns: 1fr; max-width: 260px; margin: 0 auto; }
+  .shot-cap { font-size: .9rem; }
+  .mpin-tag { font-size: .62rem; }
+  .map-paper { transform: none; }
+  .tape-corner { width: 52px; }
+}

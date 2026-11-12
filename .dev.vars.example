@@ -1,0 +1,5 @@
+# Copy this file to ".dev.vars" (same folder) and paste your Stripe TEST keys after the = signs.
+# .dev.vars is listed in .gitignore, so git will never upload it. Never put keys in any other file.
+# Find test keys at https://dashboard.stripe.com/test/apikeys (make sure "Test mode" is on).
+STRIPE_SECRET_KEY=
+STRIPE_PUBLISHABLE_KEY=

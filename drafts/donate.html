@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Donate — Reach Out LA (draft)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600&family=Manrope:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="donate.css">
+</head>
+<!-- Add ?campaign=holiday to the address to preview the holiday version. -->
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <p class="draft-banner" role="note">
+    <strong>Draft donation page</strong> — Stripe <strong>test mode</strong> only. No real money moves.
+    Preview the holiday version with <a href="?campaign=holiday">?campaign=holiday</a>.
+  </p>
+
+  <div class="frame">
+    <div class="corkboard">
+
+      <span class="lights" aria-hidden="true"></span>
+
+      <header class="site-header paper-strip">
+        <a class="brand" href="home.html">Reach Out LA</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" hidden>Menu</button>
+        <nav id="main-nav" class="main-nav" aria-label="Main">
+          <ul>
+            <li><a href="home.html#about">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="civfix.html">Civfix</a></li>
+            <li><a href="home.html#programs">Programs</a></li>
+            <li><a href="home.html#stories">Stories</a></li>
+            <li><a href="home.html#get-involved">Get involved</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a class="nav-donate" href="donate.html" aria-current="page">Donate</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main id="main" class="donate-main">
+
+        <!-- Campaign heading + why give. Text for each campaign lives in data-campaign blocks;
+             donate.js shows the one that matches the address. -->
+        <div class="donate-intro">
+          <h1 class="label" style="--tilt:-1.2deg">
+            <span data-campaign="general">Donate</span>
+            <span data-campaign="holiday" hidden>Support Civfix this holiday season</span>
+          </h1>
+
+          <div class="note why-note" style="--tilt:0.5deg">
+            <span class="pin" style="--pin:var(--pin-orange)"></span>
+            <div data-campaign="general">
+              <p class="lead">Your gift funds Civfix development and our ground-level research with Angelenos.</p>
+              <p>We use software and research to connect residents with each other and their local governments, so the problems a community identifies actually get fixed.</p>
+            </div>
+            <div data-campaign="holiday" hidden>
+              <p class="lead">This season, help neighbors report problems and organize cleanups with Civfix.</p>
+              <p>Civfix is our resident reporting and volunteer hub. Gifts to this campaign support the Civfix program.</p>
+            </div>
+            <p class="tax-line">
+              <span data-campaign="holiday" hidden>Civfix is a program of </span><strong>Reach Out Los Angeles INC</strong><span data-campaign="general"> is</span><span data-campaign="holiday" hidden>,</span>
+              a 501(c)(3) nonprofit (EIN 41-2454206). Your gift is tax-deductible to the extent allowed by law.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 1: choose an amount -->
+        <form class="note donate-form" id="donate-form" style="--tilt:-0.4deg" novalidate>
+          <span class="tape-strip"></span>
+          <h2 id="form-title">Choose your gift</h2>
+
+          <fieldset class="choice-group">
+            <legend>How often?</legend>
+            <div class="chips">
+              <input type="radio" id="freq-once" name="frequency" value="once" checked>
+              <label for="freq-once">One time</label>
+              <input type="radio" id="freq-monthly" name="frequency" value="monthly">
+              <label for="freq-monthly">Monthly</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="choice-group">
+            <legend>Amount</legend>
+            <div class="tags">
+              <input type="radio" id="amt-25" name="amount" value="25">
+              <label for="amt-25" style="--tilt:-2deg">$25</label>
+              <input type="radio" id="amt-50" name="amount" value="50" checked>
+              <label for="amt-50" style="--tilt:1.5deg">$50</label>
+              <input type="radio" id="amt-100" name="amount" value="100">
+              <label for="amt-100" style="--tilt:-1deg">$100</label>
+              <input type="radio" id="amt-250" name="amount" value="250">
+              <label for="amt-250" style="--tilt:2deg">$250</label>
+              <input type="radio" id="amt-other" name="amount" value="other">
+              <label for="amt-other" style="--tilt:-1.5deg">Other</label>
+            </div>
+            <div class="other-amount" id="other-wrap" hidden>
+              <label for="other-input">Other amount (whole dollars, $5 or more)</label>
+              <div class="dollar-input">
+                <span aria-hidden="true">$</span>
+                <input type="number" id="other-input" name="other" inputmode="numeric" min="5" max="25000" step="1" aria-describedby="form-error">
+              </div>
+            </div>
+          </fieldset>
+
+          <p class="form-error" id="form-error" role="alert"></p>
+
+          <button class="btn btn-coral btn-big" type="submit" id="continue-btn">
+            Continue to secure payment
+          </button>
+          <p class="secure-note">Payments are processed securely by Stripe. Reach Out LA never sees your card number.</p>
+        </form>
+
+        <!-- Step 2: Stripe's payment form appears here, on this page -->
+        <section class="note checkout-note" id="checkout-step" aria-labelledby="checkout-title" hidden>
+          <span class="tape-strip"></span>
+          <div class="checkout-top">
+            <h2 id="checkout-title" tabindex="-1">Payment</h2>
+            <button class="btn btn-outline btn-small" type="button" id="change-btn">Change amount</button>
+          </div>
+          <p class="checkout-summary" id="checkout-summary"></p>
+          <div id="checkout"><!-- Stripe inserts its secure payment form here --></div>
+        </section>
+
+        <!-- After paying: thank-you note -->
+        <section class="note thanks-note" id="thanks" aria-labelledby="thanks-title" hidden>
+          <span class="pin" style="--pin:var(--pin-green)"></span>
+          <h2 id="thanks-title" tabindex="-1">Thank you!</h2>
+          <p id="thanks-text">Your gift to Reach Out Los Angeles went through.</p>
+          <p>Stripe will email your receipt. Keep it for your tax records.</p>
+          <a class="btn btn-ink" href="home.html">Back to the homepage</a>
+        </section>
+
+        <aside class="needs-info donate-needs" style="--tilt:1.6deg">
+          <p class="needs-label">Needs info</p>
+          <p>Optional: one concrete, verified example of what a gift makes possible. Only if you can back it up, no estimates.</p>
+        </aside>
+
+      </main>
+
+      <footer class="site-footer note" style="--tilt:0.3deg">
+        <span class="tape-strip"></span>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="home.html#about">About</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="civfix.html">Civfix</a></li>
+            <li><a href="home.html#programs">Programs</a></li>
+            <li><a href="home.html#stories">Stories</a></li>
+            <li><a href="home.html#get-involved">Get involved</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="donate.html" aria-current="page">Donate</a></li>
+          </ul>
+        </nav>
+        <p>
+          Reach Out Los Angeles INC is a registered 501(c)(3) nonprofit organization.<br>
+          EIN 41-2454206 · 3214 Veteran Ave, Los Angeles, CA 90034 ·
+          <a href="mailto:roman@reachoutla.org">roman@reachoutla.org</a>
+        </p>
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="menu.js"></script>
+  <script src="donate.js"></script>
+</body>
+</html>
