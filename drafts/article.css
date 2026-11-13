@@ -255,3 +255,7 @@
 .update-card--photo :is(h2, h3),
 .update-card--photo .update-date { padding: 0 12px; }
 .update-card--photo :is(h2, h3) { font-size: 1.6rem; }
+
+/* "Get to know us" links on the About page */
+.about-links { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 4px; }
+.about-links a { display: inline-block; padding: 6px 0; font-weight: 800; }

@@ -5,8 +5,10 @@
    inside the link, not replaced.
    It still reads, and copies, as the plain word "civfix".
    Left alone: buttons (rainbow letters would clash with the
-   button colors), and the menu and footer, which stay plain
-   so navigation looks the same on every page.
+   button colors), the menu and footer, which stay plain
+   so navigation looks the same on every page, and decoration
+   hidden from screen readers (like the tear-off tabs), and
+   anything inside .no-wordmark (e.g. copy-ready press text).
    Styles: .cf-word in home.css.
    ========================================================== */
 (function () {
@@ -32,7 +34,8 @@
   var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
     acceptNode: function (node) {
       if (!/civfix/i.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
-      if (node.parentElement.closest('.btn, .cf-word, nav, script, style, textarea')) return NodeFilter.FILTER_REJECT;
+      // skip buttons, navigation, and decoration (e.g. the flyer's sideways tear-off tabs)
+      if (node.parentElement.closest('.btn, .cf-word, .no-wordmark, nav, [aria-hidden="true"], script, style, textarea')) return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;
     }
   });
