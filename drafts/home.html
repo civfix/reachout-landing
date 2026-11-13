@@ -9,7 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600&family=Manrope:wght@400;500;700;800&display=swap">
-  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="home.css?v=3">
+  <link rel="stylesheet" href="article.css?v=3">
 </head>
 <body>
 
@@ -37,8 +38,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="team.html">Team</a></li>
             <li><a href="civfix.html">Civfix</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#stories">Stories</a></li>
+            <li><a href="updates.html">Updates</a></li>
             <li><a href="#get-involved">Get involved</a></li>
             <li><a href="press.html">Press</a></li>
             <li><a class="nav-donate" href="donate.html">Donate</a></li>
@@ -110,79 +110,33 @@
           </div>
         </section>
 
-        <!-- PROGRAMS -->
-        <section class="section" id="programs" aria-labelledby="programs-title">
-          <h2 id="programs-title" class="label" style="--tilt:-1.5deg">Community projects</h2>
+        <!-- UPDATES: news, research and announcements (replaces Community projects + Stories) -->
+        <section class="section" id="updates" aria-labelledby="updates-title">
+          <h2 id="updates-title" class="label" style="--tilt:-1.5deg">Updates</h2>
 
-          <div class="board">
-            <article class="card" style="--tilt:-1.2deg">
-              <span class="pin" style="--pin:#ff6361"></span>
-              <figure class="card-photo">
-                <img src="../dist/images/civfix-photo-3.webp" width="431" height="936" loading="lazy"
-                     alt="Civfix app screen asking “What is it?” with issue types such as illegal dumping, graffiti and broken infrastructure.">
-              </figure>
-              <div class="card-body">
-                <p class="kicker">Program</p>
-                <h3>Civfix</h3>
-                <p><strong>Our resident reporting and volunteer hub.</strong> See a problem, like illegal dumping, graffiti, a pothole or a broken streetlight? Drop a pin and add a photo. Civfix works out which agency is responsible and forwards your report.</p>
-                <p>The same map shows neighborhood cleanups you can join or host.</p>
-                <ul class="link-list">
-                  <li><a href="https://civfix.org">Open Civfix on the web</a></li>
-                  <li><a href="https://apps.apple.com/us/app/civfix/id6781838072">iPhone app</a></li>
-                  <li><a href="https://android.civfix.org">Android app</a></li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="card" style="--tilt:1deg">
-              <span class="pin" style="--pin:#69cefa"></span>
-              <figure class="card-photo">
-                <img src="../dist/images/mission-photo-1.webp" width="936" height="702" loading="lazy"
-                     alt="A young man in a Reach Out Los Angeles T-shirt stands beside an older man on a city street.">
-              </figure>
-              <div class="card-body">
-                <p class="kicker">Program</p>
-                <h3>Unhoused research</h3>
-                <p>Direct, human-centered research on homelessness across California. We ask people what they actually need, then bring what we learn to the people making decisions.</p>
-              </div>
-            </article>
-
-            <aside class="needs-info" style="--tilt:-2deg">
-              <p class="needs-label">Needs info</p>
-              <p>Are there other current projects to pin here? For each one: name, what it does, and a photo you have permission to use.</p>
-            </aside>
-          </div>
-        </section>
-
-        <!-- STORIES -->
-        <section class="section" id="stories" aria-labelledby="stories-title">
-          <h2 id="stories-title" class="label" style="--tilt:1.2deg">Real stories</h2>
-
-          <div class="board">
-            <article class="card" style="--tilt:-0.8deg">
+          <ul class="updates-list home-updates">
+            <li class="update-card update-card--photo" style="--tilt:-1.4deg">
               <span class="tape-strip"></span>
-              <figure class="card-photo">
-                <img src="../dist/images/card-help.webp" width="1000" height="1333" loading="lazy"
-                     alt="A young volunteer stands beside three people seated on a bench by a tall iron fence, one holding a small device.">
-              </figure>
-              <div class="card-body">
-                <p class="kicker">Where it started</p>
-                <h3>“I just need to charge my phone”</h3>
-                <p>A man outside a coffee shop needed five minutes of power to call his mother. That conversation led our founder and a group of 16-year-olds to Skid Row with a few hundred solar-powered chargers and a questionnaire.</p>
-                <a class="text-link" href="../dist/mission.html">Read the founder’s message <span aria-hidden="true">→</span></a>
-              </div>
-            </article>
-
-            <aside class="needs-info" style="--tilt:1.8deg">
-              <p class="needs-label">Needs info</p>
-              <p>A verified story: who it’s about, what happened, when, and any quote <em>with that person’s permission</em>. Plus a photo, its photographer credit, and permission to publish it.</p>
-            </aside>
-
-            <aside class="needs-info" style="--tilt:-1.2deg">
-              <p class="needs-label">Needs info</p>
-              <p>A second verified story, ideally from a Civfix report or cleanup. Same details as above.</p>
-            </aside>
-          </div>
+              <div class="update-photo"><img src="images/updates/civfix-logo.png" width="629" height="640" alt=""></div>
+              <p class="article-kicker">Launch</p>
+              <h3><a href="update-civfix-launch.html">Reach Out launches Civfix: the global volunteer hub</a></h3>
+              <p class="update-date"><time datetime="2026-09-25">September 25, 2026</time></p>
+            </li>
+            <li class="update-card" style="--tilt:-0.8deg">
+              <span class="pin" style="--pin:var(--pin-coral)"></span>
+              <p class="article-kicker">Announcement</p>
+              <h3><a href="update-311-app.html">Reach Out LA receives $10,000 to build a better 311 app</a></h3>
+              <p>A one-time donation will fund Civfix, a third-party 311 app that works in any city and shows how long reports take to get fixed in every neighborhood.</p>
+              <p class="update-date"><time datetime="2026-05-19">May 19, 2026</time></p>
+            </li>
+            <li class="all-updates">
+              <a class="flyer all-updates-link" href="updates.html" style="--tilt:1.6deg">
+                <span class="pin" style="--pin:var(--pin-green)"></span>
+                <span class="all-updates-title">See all updates</span>
+                <span>News, our research, and what we’re building <span aria-hidden="true">→</span></span>
+              </a>
+            </li>
+          </ul>
         </section>
 
         <!-- GET INVOLVED -->
@@ -235,8 +189,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="team.html">Team</a></li>
             <li><a href="civfix.html">Civfix</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#stories">Stories</a></li>
+            <li><a href="updates.html">Updates</a></li>
             <li><a href="#get-involved">Get involved</a></li>
             <li><a href="press.html">Press</a></li>
             <li><a href="donate.html">Donate</a></li>
@@ -252,9 +205,10 @@
     </div>
   </div>
 
-  <script src="menu.js"></script>
+  <script src="menu.js?v=3"></script>
+  <script src="wordmark.js?v=3"></script>
 
   <!-- Letters and pinned items wiggle when the pointer sweeps past (decoration only) -->
-  <script src="wiggle.js"></script>
+  <script src="wiggle.js?v=3"></script>
 </body>
 </html>

@@ -1,19 +1,20 @@
 /* ==========================================================
-   Civfix page: put the EXAMPLE pins on the LA map.
-   Positions come from civfix-pins.js (made by tools/gen_la_map.py),
-   as percentages of the map, so they stay in place at any size.
-   When the map scrolls into view, the pins drop in one after another.
-   Decoration only: the real explanation is the visible map key.
+   Civfix page:
+   Put the EXAMPLE pins on the map. (The colorful civfix wordmark
+   is drawn by wordmark.js, shared by every page.) Positions come from
+      civfix-pins.js (made by tools/gen_la_map.py) as percentages
+      of the map, so they stay in place at any size. When the map
+      comes into view, the pins drop in one after another.
    ========================================================== */
 (function () {
   'use strict';
 
+  /* ---------- Example pins on the map ---------- */
   var holder = document.getElementById('map-pins');
   var pins = window.CIVFIX_PINS || [];
   if (!holder || !pins.length) return;
 
-  // Drop order: top of the map to the bottom, like rain
-  pins = pins.slice().sort(function (a, b) { return a.y - b.y; });
+  pins = pins.slice().sort(function (a, b) { return a.y - b.y; });   // drop top to bottom, like rain
 
   var html = '';
   pins.forEach(function (p, i) {
@@ -24,7 +25,6 @@
   holder.innerHTML = html;
   window.dispatchEvent(new Event('wiggle:refresh'));
 
-  // Drop the pins in when the map is on screen (skipped if reduced motion is on: CSS ignores it)
   if ('IntersectionObserver' in window) {
     holder.classList.add('waiting');
     var io = new IntersectionObserver(function (entries) {

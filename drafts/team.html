@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600&family=Manrope:wght@400;500;700;800&display=swap">
-  <link rel="stylesheet" href="home.css">
-  <link rel="stylesheet" href="team.css">
+  <link rel="stylesheet" href="home.css?v=3">
+  <link rel="stylesheet" href="team.css?v=4">
 </head>
 <body>
 
@@ -90,8 +90,7 @@
             <li><a href="home.html#about">About</a></li>
             <li><a href="team.html" aria-current="page">Team</a></li>
             <li><a href="civfix.html">Civfix</a></li>
-            <li><a href="home.html#programs">Programs</a></li>
-            <li><a href="home.html#stories">Stories</a></li>
+            <li><a href="updates.html">Updates</a></li>
             <li><a href="home.html#get-involved">Get involved</a></li>
             <li><a href="press.html">Press</a></li>
             <li><a class="nav-donate" href="donate.html">Donate</a></li>
@@ -108,13 +107,25 @@
           <div class="team-center">
             <h1 id="team-title" class="label team-title" style="--tilt:-1.5deg">Meet the team</h1>
 
-            <!-- Roman is first in the code (the order screen readers hear); on screen he sits top-center. -->
+            <!-- Row 1: Roman, Theo, Rudra. Row 2: Andrew, Knox, Alexandria. -->
             <ul class="team-grid">
               <li class="member member--lead" style="--tilt:0.8deg">
                 <span class="pin" style="--pin:var(--pin-coral)"></span>
                 <img class="member-photo" src="../dist/images/about-president.webp" width="208" height="208" alt="Portrait of Roman Aytur">
                 <h2 class="member-name">Roman Aytur</h2>
                 <p class="member-role">President</p>
+              </li>
+              <li class="member" style="--tilt:-1.2deg">
+                <span class="pin" style="--pin:var(--pin-blue)"></span>
+                <img class="member-photo" src="../dist/images/about-eng-1.webp" width="157" height="208" alt="Portrait of Theodore Bong">
+                <h2 class="member-name">Theodore Bong</h2>
+                <p class="member-role">Founding Engineer</p>
+              </li>
+              <li class="member" style="--tilt:2.4deg">
+                <span class="pin" style="--pin:var(--pin-coral)"></span>
+                <img class="member-photo" src="../dist/images/about-eng-2.webp" width="208" height="208" alt="Portrait of Rudra Patel">
+                <h2 class="member-name">Rudra Patel</h2>
+                <p class="member-role">Founding Engineer</p>
               </li>
               <li class="member" style="--tilt:-2.2deg">
                 <span class="pin" style="--pin:var(--pin-orange)"></span>
@@ -136,18 +147,6 @@
                 <img class="member-photo" src="images/team/alexandria-taylor.webp" width="600" height="840" alt="Portrait of Alexandria Taylor">
                 <h2 class="member-name">Alexandria Taylor</h2>
                 <p class="member-role">Executive Assistant</p>
-              </li>
-              <li class="member" style="--tilt:-1.2deg">
-                <span class="pin" style="--pin:var(--pin-blue)"></span>
-                <img class="member-photo" src="../dist/images/about-eng-1.webp" width="157" height="208" alt="Portrait of Theodore Bong">
-                <h2 class="member-name">Theodore Bong</h2>
-                <p class="member-role">Founding Engineer</p>
-              </li>
-              <li class="member" style="--tilt:2.4deg">
-                <span class="pin" style="--pin:var(--pin-coral)"></span>
-                <img class="member-photo" src="../dist/images/about-eng-2.webp" width="208" height="208" alt="Portrait of Rudra Patel">
-                <h2 class="member-name">Rudra Patel</h2>
-                <p class="member-role">Founding Engineer</p>
               </li>
             </ul>
 
@@ -176,8 +175,7 @@
             <li><a href="home.html#about">About</a></li>
             <li><a href="team.html" aria-current="page">Team</a></li>
             <li><a href="civfix.html">Civfix</a></li>
-            <li><a href="home.html#programs">Programs</a></li>
-            <li><a href="home.html#stories">Stories</a></li>
+            <li><a href="updates.html">Updates</a></li>
             <li><a href="home.html#get-involved">Get involved</a></li>
             <li><a href="press.html">Press</a></li>
             <li><a href="donate.html">Donate</a></li>
@@ -193,8 +191,9 @@
     </div>
   </div>
 
-  <script src="menu.js"></script>
-  <script src="team.js"></script>
-  <script src="wiggle.js"></script>
+  <script src="menu.js?v=3"></script>
+  <script src="wordmark.js?v=3"></script>
+  <script src="team.js?v=3"></script>
+  <script src="wiggle.js?v=3"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@
   gap: clamp(60px, 7vw, 96px) clamp(24px, 5vw, 72px);
   justify-items: center;
 }
-.member--lead { grid-column: 2; grid-row: 1; }   /* Roman: first in the code, top-center on screen */
+/* Order on screen follows the order in team.html: Roman, Theo, Rudra, then Andrew, Knox, Alexandria */
 
 .member {
   position: relative;

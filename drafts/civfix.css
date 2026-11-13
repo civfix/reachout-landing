@@ -1,56 +1,59 @@
 /* ==========================================================
    Civfix page DRAFT — extra styles on top of home.css
-   A street map of Los Angeles taped to the board, covered in
-   (example) report and cleanup pins, with notes around it.
+   Top of the page: what Civfix is, side by side with a street map
+   (Los Angeles area, fading out at the edges because Civfix works
+   anywhere), covered in EXAMPLE report and cleanup pins.
    ========================================================== */
 
-/* ---------- Intro ---------- */
-.cf-intro {
-  max-width: var(--max);
+/* ---------- Top: text (left) + map (right) ---------- */
+.cf-top {
+  max-width: 1200px;
   margin: 0 auto;
-  padding-top: clamp(36px, 5vw, 64px);
+  padding-top: clamp(32px, 4vw, 56px);
   display: grid;
-  grid-template-columns: 1.6fr 1fr;
-  gap: clamp(28px, 4vw, 52px);
-  align-items: end;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
 }
-.cf-intro .label { font-size: clamp(2.4rem, 6vw, 3.4rem); }
-.cf-lead-note .lead { font-size: clamp(1.35rem, 2.6vw, 1.65rem); font-weight: 800; line-height: 1.3; }
+.cf-top-text { display: flex; flex-direction: column; gap: clamp(24px, 3vw, 36px); }
 
+.cf-title {
+  font-size: clamp(3.4rem, 8vw, 5.2rem);
+  line-height: .9;
+  padding: 12px 26px 6px;
+  margin-bottom: 0;
+}
+.cf-lead-note .lead { font-size: clamp(1.35rem, 2.4vw, 1.6rem); font-weight: 800; line-height: 1.3; }
+
+.get-app { align-self: flex-start; max-width: 420px; }
 .get-app h2 { font-size: 1.75rem; margin-bottom: 6px; }
 .badges { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .badges a { display: inline-block; border-radius: 8px; }
 .badges img { height: 40px; width: auto; }
 
-/* ---------- Map section ---------- */
-.cf-map-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: clamp(56px, 7vw, 88px);
-}
-.map-label { margin-left: auto; margin-right: auto; }
-
-.cf-map-layout {
-  display: grid;
-  grid-template-columns: minmax(200px, 260px) minmax(0, 640px) minmax(200px, 260px);
-  justify-content: center;
-  gap: clamp(20px, 3vw, 40px);
-  align-items: start;
-}
-.cf-side { display: flex; flex-direction: column; gap: clamp(28px, 4vw, 44px); padding-top: 24px; }
-.cf-side--right { padding-top: 140px; }
-
-/* The map itself: a sheet of paper taped at the corners */
+/* ---------- The map: a sheet of paper taped to the board ---------- */
 .map-paper {
   position: relative;
   margin: 0;
   padding: clamp(10px, 1.6vw, 18px) clamp(10px, 1.6vw, 18px) 10px;
   background: #FBF6EA;
   box-shadow: var(--shadow), inset 0 0 40px rgba(160, 130, 90, .12);
-  transform: rotate(-0.5deg);
+  transform: rotate(0.8deg);
 }
 .map-wrap { position: relative; }
-.map-img { width: 100%; height: auto; }
+.map-img {
+  width: 100%;
+  height: auto;
+  /* streets fade out toward every edge: no borders, because Civfix works anywhere */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),
+    linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),
+    linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+          mask-composite: intersect;
+}
 
 .tape-corner {
   position: absolute;
@@ -71,17 +74,33 @@
   text-align: center;
 }
 
+/* Map key: a sticky note stuck over the map's lower-left corner */
+.legend {
+  position: absolute;
+  left: -26px;
+  bottom: 54px;
+  width: 190px;
+  padding: 14px 16px 12px;
+  font-size: .9rem;
+  z-index: 4;
+}
+.legend .needs-label { font-size: 1.4rem; margin-bottom: 4px; }
+.legend-list { list-style: none; margin: 2px 0 8px; padding: 0; display: grid; gap: 4px; font-weight: 800; }
+.legend-list li { display: flex; align-items: center; gap: 10px; }
+.legend-pin {
+  width: 15px; height: 15px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 32%, rgba(255,255,255,.8) 0 1.5px, transparent 3px), var(--pc);
+  box-shadow: 1px 2px 2px rgba(45,25,8,.4);
+}
+.legend-pin--report  { --pc: #E8473B; }
+.legend-pin--cleanup { --pc: #2E9E57; box-shadow: 0 0 0 2px #fff, 1px 2px 2px rgba(45,25,8,.4); }
+.legend-note { margin: 0; font-size: .82rem; line-height: 1.4; }
+
 /* ---------- Pins on the map ---------- */
 .map-pins { position: absolute; inset: 0; pointer-events: none; }
 
-.mpin {
-  position: absolute;
-  left: var(--x);
-  top: var(--y);
-  width: 0; height: 0;
-}
-/* the pin head sits just above the exact spot, like a push-pin stuck into the map */
-.mpin::before {
+.mpin { position: absolute; left: var(--x); top: var(--y); width: 0; height: 0; }
+.mpin::before {   /* pin head, just above the exact spot */
   content: "";
   position: absolute;
   left: -7px; top: -16px;
@@ -104,7 +123,6 @@
 .mpin--cleanup { --pc: #2E9E57; }
 .mpin--cleanup::before { box-shadow: 0 0 0 2px #fff, 1px 3px 3px rgba(45,25,8,.45); }
 
-/* little paper tag next to some pins */
 .mpin-tag {
   position: absolute;
   left: 9px; top: -22px;
@@ -120,7 +138,7 @@
 }
 .mpin--cleanup .mpin-tag { color: #1D6B3A; }
 
-/* pins "drop in" when the map scrolls into view */
+/* pins "drop in" when the map comes into view */
 @media (prefers-reduced-motion: no-preference) {
   .map-pins.waiting .mpin { opacity: 0; transform: translateY(-40px); }
   .map-pins .mpin {
@@ -129,29 +147,23 @@
   }
 }
 
-/* ---------- Legend + numbered steps ---------- */
-.legend { font-size: .95rem; }
-.legend-list { list-style: none; margin: 4px 0 10px; padding: 0; display: grid; gap: 6px; font-weight: 800; }
-.legend-list li { display: flex; align-items: center; gap: 10px; }
-.legend-pin {
-  width: 16px; height: 16px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 32%, rgba(255,255,255,.8) 0 1.5px, transparent 3px), var(--pc);
-  box-shadow: 1px 2px 2px rgba(45,25,8,.4);
+/* ---------- How it works: four numbered index cards ---------- */
+.cf-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 32px);
+  align-items: start;
 }
-.legend-pin--report  { --pc: #E8473B; }
-.legend-pin--cleanup { --pc: #2E9E57; box-shadow: 0 0 0 2px #fff, 1px 2px 2px rgba(45,25,8,.4); }
-.legend-note { margin: 0; font-size: .9rem; }
-
 .index-step {
   position: relative;
-  padding: 18px 18px 16px 18px;
+  padding: 18px 18px 16px;
   background: var(--paper);
   background-image: repeating-linear-gradient(to bottom, transparent 0 27px, rgba(80,120,170,.13) 27px 28px);
   box-shadow: var(--shadow);
   transform: rotate(var(--tilt, 0deg));
   font-size: .98rem;
 }
-.index-step h3 { font-size: 1.35rem; margin: 0 0 6px 36px; }
+.index-step h3 { font-size: 1.3rem; margin: 0 0 6px 38px; min-height: 30px; }
 .index-step p { margin: 0; }
 .step-num {
   position: absolute;
@@ -164,8 +176,6 @@
   font-family: var(--font-head);
   font-weight: 800;
 }
-
-.map-scrap { align-self: flex-start; --tilt: -3deg; }
 
 /* ---------- App screenshots ---------- */
 .shots {
@@ -187,25 +197,24 @@
 .cf-cta-note .cta-row { justify-content: center; }
 
 /* ---------- Tablet / phone ---------- */
-@media (max-width: 1080px) {
-  .cf-map-layout { grid-template-columns: minmax(0, 640px); }
-  .cf-side { flex-direction: row; flex-wrap: wrap; justify-content: center; padding-top: 0; }
-  .cf-side > * { flex: 1 1 240px; max-width: 320px; }
-  .cf-side--left { order: 2; }
-  .map-paper { order: 1; }
-  .cf-side--right { order: 3; }
-  .map-scrap { display: none; }
+@media (max-width: 980px) {
+  /* stack: text first, then the map */
+  .cf-top { grid-template-columns: 1fr; max-width: 680px; }
+  .cf-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .legend { left: -10px; }
 }
 @media (max-width: 760px) {
-  .cf-intro { grid-template-columns: 1fr; }
   .shots { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
   .shot { padding: 6px 6px 10px; }
   .shot-cap { font-size: .75rem; }
 }
-@media (max-width: 520px) {
+@media (max-width: 560px) {
+  .cf-steps { grid-template-columns: 1fr; }
   .shots { grid-template-columns: 1fr; max-width: 260px; margin: 0 auto; }
   .shot-cap { font-size: .9rem; }
   .mpin-tag { font-size: .62rem; }
   .map-paper { transform: none; }
   .tape-corner { width: 52px; }
+  /* the key moves under the map instead of covering it */
+  .legend { position: relative; left: auto; bottom: auto; width: auto; margin: 16px 6px 4px; }
 }

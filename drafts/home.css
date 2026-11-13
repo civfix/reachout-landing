@@ -521,3 +521,23 @@ a:hover { text-decoration-thickness: 2px; }
   .cta-row .btn { flex: 1 1 100%; }
   .label::before { left: -8px; width: 40px; }
 }
+
+/* ---------- The civfix wordmark (same as the app's logo) ----------
+   Baloo 2 ExtraBold, tight letter spacing, one color per letter.
+   Colors are Civfix's own light-mode logo colors from civfix.org. */
+.cf-word {
+  font-family: 'Baloo 2', var(--font-head);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+.cf-word .s1, .cf-word .s6 { color: #F0685C; }   /* c, x  */
+.cf-word .s2 { color: #B98A14; }                  /* i     */
+.cf-word .s3 { color: #63A45A; }                  /* v     */
+.cf-word .s4 { color: #74A9D8; }                  /* f     */
+.cf-word .s5 { color: #9B7ED9; }                  /* i     */
+/* links: keep the link's underline in its own color */
+a .cf-word { text-decoration: inherit; }
+/* in running text, a touch bigger so the light letters stay easy to read */
+p .cf-word, li .cf-word { font-size: 1.12em; line-height: 1; }
+
