@@ -1,5 +1,5 @@
 /* ==========================================================
-   Civfix wordmark: draws every "Civfix" in the page's main
+   civfix wordmark: draws every "civfix" in the page's main
    content in the colorful civfix logo style (lowercase, one
    color per letter). Links stay links: the word is restyled
    inside the link, not replaced.

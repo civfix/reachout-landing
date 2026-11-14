@@ -35,7 +35,7 @@
       selector: '.lettering img',
       amp: 10, reach: 0.1, rotK: 0.0025, rotCap: 270, maxRange: Infinity
     },
-    { // example pins on the Civfix map: tiny, so they get a minimum reach
+    { // example pins on the civfix map: tiny, so they get a minimum reach
       selector: '.mpin',
       amp: 7, reach: 0.1, rotK: 0.0025, rotCap: 270, maxRange: Infinity, minRange: 70
     },

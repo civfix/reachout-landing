@@ -1,7 +1,7 @@
 /* ==========================================================
-   Civfix page DRAFT — extra styles on top of home.css
-   Top of the page: what Civfix is, side by side with a street map
-   (Los Angeles area, fading out at the edges because Civfix works
+   civfix page DRAFT — extra styles on top of home.css
+   Top of the page: what civfix is, side by side with a street map
+   (Los Angeles area, fading out at the edges because civfix works
    anywhere), covered in EXAMPLE report and cleanup pins.
    ========================================================== */
 
@@ -44,7 +44,7 @@
 .map-img {
   width: 100%;
   height: auto;
-  /* streets fade out toward every edge: no borders, because Civfix works anywhere */
+  /* streets fade out toward every edge: no borders, because civfix works anywhere */
   -webkit-mask-image:
     linear-gradient(to right, transparent, #000 14%, #000 86%, transparent),
     linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
@@ -215,6 +215,9 @@
   .mpin-tag { font-size: .62rem; }
   .map-paper { transform: none; }
   .tape-corner { width: 52px; }
+  /* keep the corner tape inside the screen on phones */
+  .tape-corner--tl, .tape-corner--bl { left: -8px; }
+  .tape-corner--tr, .tape-corner--br { right: -8px; }
   /* the key moves under the map instead of covering it */
   .legend { position: relative; left: auto; bottom: auto; width: auto; margin: 16px 6px 4px; }
 }

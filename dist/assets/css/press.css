@@ -1,0 +1,133 @@
+/* ==========================================================
+   Press page DRAFT — extra styles on top of home.css + article.css
+   Same bulletin board: every bit of text sits on paper.
+   ========================================================== */
+
+.press-main { max-width: var(--max); margin: 0 auto; }
+
+/* ---------- Top: intro + media contact ---------- */
+.press-top {
+  padding-top: clamp(36px, 5vw, 64px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 52px);
+  align-items: end;
+}
+.press-intro .lead { font-size: clamp(1.3rem, 2.5vw, 1.6rem); font-weight: 800; line-height: 1.3; }
+.press-contact { padding: 26px 26px 24px; font-size: 1.05rem; }
+.press-contact .needs-label { font-size: 1.8rem; }
+.contact-name { margin: 0; font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; }
+.contact-role { margin: 0 0 10px; font-weight: 700; color: var(--ink-2); }
+.contact-email { font-weight: 800; color: var(--ink); word-break: break-word; }
+
+/* ---------- About + fast facts ---------- */
+.press-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(24px, 3.5vw, 44px);
+  align-items: start;
+}
+.boilerplate h3 { font-size: 1.15rem; margin: 0 0 .4em; color: var(--ink-2); text-transform: uppercase; letter-spacing: .06em; font-family: var(--font-body); font-weight: 800; }
+.boilerplate h3:not(:first-of-type) { margin-top: 1.4em; }
+.boilerplate p { margin-bottom: .7em; }
+.copy-btn { margin-bottom: 4px; }
+.copy-status { min-height: 1.4em; margin: 10px 0 0; font-weight: 700; color: #1D6B3A; }
+
+.facts { padding-top: 22px; }
+.facts h3 { font-size: 1.6rem; margin-bottom: 8px; }
+.facts dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: .98rem; }
+.facts dt { font-weight: 800; color: var(--ink-2); }
+.facts dd { margin: 0; }
+
+/* ---------- Logo ---------- */
+.press-logo-row {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  max-width: 860px;
+}
+.logo-print img { aspect-ratio: auto; background: #F4F5F4; }
+.logo-notes h3 { font-size: 1.5rem; margin-bottom: .3em; }
+.usage { margin: 0 0 1.1em; padding-left: 1.2em; }
+.usage li { margin-bottom: .3em; }
+
+/* ---------- Photos ---------- */
+.photos-scrap { margin: -14px 0 28px 10px; --tilt: -2deg; }
+.photo-group-title {
+  width: fit-content;
+  margin: 8px 0 22px;
+  padding: 4px 14px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  font-size: 1.1rem;
+}
+.press-photos {
+  list-style: none;
+  margin: 0 0 40px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: clamp(22px, 3vw, 36px);
+  align-items: start;
+}
+.press-photo { padding: 10px 10px 14px; }
+.press-photo img { aspect-ratio: auto; width: 100%; height: auto; object-fit: contain; }
+.press-cap { margin: 10px 0 4px; font-size: .9rem; line-height: 1.45; }
+.press-credit { margin: 0 0 8px; font-size: .82rem; font-weight: 800; color: var(--ink-2); }
+.press-dl { display: inline-block; padding: 4px 0; font-size: .88rem; font-weight: 800; }
+
+/* ---------- Leadership headshots ---------- */
+.leaders-note {
+  width: fit-content;
+  max-width: 100%;
+  margin: -12px 0 26px;
+  padding: 8px 14px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  font-size: .95rem;
+}
+.press-headshots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: clamp(22px, 3vw, 34px);
+  justify-items: center;
+}
+.press-headshots .member {
+  width: 100%;
+  max-width: 170px;
+  padding: 8px 8px 12px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transform: rotate(var(--tilt, 0deg));
+}
+.press-headshots .member-photo { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 22%; }
+.press-headshots .member-name { margin: 8px 0 0; font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; line-height: 1.2; }
+.press-headshots .member-role { margin: 0 0 4px; font-size: .72rem; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); }
+
+/* ---------- Tablet / phone ---------- */
+@media (max-width: 860px) {
+  .press-top, .press-about-grid, .press-logo-row { grid-template-columns: 1fr; }
+  .logo-print { max-width: 300px; }
+}
+@media (max-width: 520px) {
+  .press-headshots { grid-template-columns: 1fr 1fr; }
+  .press-photos { grid-template-columns: 1fr; }
+}
+
+/* small button (same as the donate page's) for the Copy buttons */
+.btn-small { min-height: 40px; padding: 6px 16px; font-size: .92rem; }
+
+/* Fast facts: a ruled index card (its own paper, so no text sits on the cork) */
+.facts {
+  position: relative;
+  padding: 24px 22px 20px;
+  background: var(--paper);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 27px, rgba(80,120,170,.13) 27px 28px);
+  box-shadow: var(--shadow);
+  transform: rotate(var(--tilt, 0deg));
+}

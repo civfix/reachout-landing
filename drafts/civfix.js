@@ -1,5 +1,5 @@
 /* ==========================================================
-   Civfix page:
+   civfix page:
    Put the EXAMPLE pins on the map. (The colorful civfix wordmark
    is drawn by wordmark.js, shared by every page.) Positions come from
       civfix-pins.js (made by tools/gen_la_map.py) as percentages

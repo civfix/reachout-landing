@@ -1,303 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-  <meta name="description" content="The page you were looking for could not be found." />
-  <meta name="robots" content="noindex, follow" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <title>404 | Reach Out LA</title>
-
-  <!--
-    A known section requested with a trailing slash or extra path (e.g. /about/)
-    falls through to this 404.html on Cloudflare Pages. Bounce it to the canonical
-    clean URL, which the matching per-route file serves with HTTP 200. Genuinely
-    unknown paths don't match and render the 404 below. Runs before paint, so no
-    flash. /about is served by about.html (no redirect there) so there's no loop.
-  -->
-  <script>
-    (function () {
-      var ROUTES = { about: 1, mission: 1, civfix: 1, help: 1 };
-      var seg = (location.pathname || '/').replace(/^\/+|\/+$/g, '').split('/')[0].toLowerCase();
-      if (ROUTES[seg]) location.replace('/' + seg);
-    })();
-  </script>
-
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap');
-
-    :root {
-      --paper:     #FDFCFA;  /* reach-out on-theme background */
-      --bb-coral:  #ff6361;
-      --bb-orange: #fda006;
-    }
-
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      -webkit-text-size-adjust: none;
-      text-size-adjust: none;
-    }
-
-    body {
-      position: fixed;
-      overflow: hidden;
-      background: var(--paper);
-      font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Same subtle corner wash the rest of the site uses, so the paper isn't flat. */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(1200px 700px at 78% -10%, rgba(255, 99, 97, 0.05), transparent 60%),
-        radial-gradient(1000px 700px at 10% 110%, rgba(105, 206, 250, 0.06), transparent 60%);
-    }
-
-    .logo {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      width: 73%;
-      text-align: center;
-      white-space: nowrap;
-      pointer-events: none;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    .char {
-      display: inline-block;
-      vertical-align: middle;
-      height: clamp(76px, 16vw, 130px);
-      width: auto;
-      padding: 0 clamp(4px, 1vw, 10px);
-      transform-origin: center;
-      opacity: 0;
-      will-change: transform, opacity;
-    }
-
-    .social {
-      position: absolute;
-      left: 0;
-      bottom: 18px;
-      z-index: 1;
-      width: 100%;
-      text-align: center;
-    }
-
-    .link {
-      display: inline-block;
-      transform-origin: center;
-      transform: translateY(100px) rotate(-180deg);
-    }
-
-    a:link,
-    a:active,
-    a:visited {
-      position: relative;
-      text-decoration: none;
-      font-size: 12pt;
-      font-weight: 600;
-      padding: 0 5px;
-      color: #1A1714;
-      transition: color 0.2s ease-out;
-    }
-
-    a:hover { color: #555; }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This page isn’t on the board.">
+  <meta name="theme-color" content="#F3EBDD">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Reach Out LA">
+  <meta property="og:title" content="Page not found">
+  <meta property="og:description" content="This page isn’t on the board.">
+  <meta property="og:image" content="https://www.reachoutla.org/assets/img/og-image.jpg">
+  <meta property="og:image:alt" content="The Reach Out LA bulletin board, with the REACH OUT LA sign standing on hills above Los Angeles.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Page not found | Reach Out LA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600&family=Manrope:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/home.css?v=3">
+  <link rel="stylesheet" href="/assets/css/article.css?v=5">
 </head>
 <body>
-  <div class="logo" role="img" aria-label="404 &mdash; page not found"><svg class="char" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62.5 97.7"><defs><path id="g-a" d="M12.0 7.0L29.0 7.0L29.0 47.0L42.0 47.0L42.0 7.0L59.0 7.0L59.0 79.0L42.0 79.0L42.0 64.0L12.0 64.0Z"/><clipPath id="clip-a"><use href="#g-a"/></clipPath><clipPath id="sil-a"><path d="M12.0 7.0L12.0 8.0L12.0 9.0L12.0 10.0L12.0 11.0L12.0 12.0L12.0 13.0L12.0 14.0L12.0 15.0L12.0 16.0L12.0 17.0L12.0 18.0L12.0 19.0L12.0 20.0L12.0 21.0L12.0 22.0L12.0 23.0L12.0 24.0L12.0 25.0L12.0 26.0L12.0 27.0L12.0 28.0L12.0 29.0L12.0 30.0L12.0 31.0L12.0 32.0L12.0 33.0L12.0 34.0L12.0 35.0L12.0 36.0L12.0 37.0L12.0 38.0L12.0 39.0L12.0 40.0L12.0 41.0L12.0 42.0L12.0 43.0L12.0 44.0L12.0 45.0L12.0 46.0L12.0 47.0L12.0 48.0L12.0 49.0L12.0 50.0L12.0 51.0L12.0 52.0L12.0 53.0L12.0 54.0L12.0 55.0L12.0 56.0L12.0 57.0L12.0 58.0L12.0 59.0L12.0 60.0L12.0 61.0L12.0 62.0L12.0 63.0L12.0 64.0L42.0 65.0L42.0 66.0L42.0 67.0L42.0 68.0L42.0 69.0L42.0 70.0L42.0 71.0L42.0 72.0L42.0 73.0L42.0 74.0L42.0 75.0L42.0 76.0L42.0 77.0L42.0 78.0L42.0 79.0L0.0 79.0L0.0 97.7L62.5 97.7L62.5 79.0L59.0 79.0L59.0 78.0L59.0 77.0L59.0 76.0L59.0 75.0L59.0 74.0L59.0 73.0L59.0 72.0L59.0 71.0L59.0 70.0L59.0 69.0L59.0 68.0L59.0 67.0L59.0 66.0L59.0 65.0L59.0 64.0L59.0 63.0L59.0 62.0L59.0 61.0L59.0 60.0L59.0 59.0L59.0 58.0L59.0 57.0L59.0 56.0L59.0 55.0L59.0 54.0L59.0 53.0L59.0 52.0L59.0 51.0L59.0 50.0L59.0 49.0L59.0 48.0L59.0 47.0L59.0 46.0L59.0 45.0L59.0 44.0L59.0 43.0L59.0 42.0L59.0 41.0L59.0 40.0L59.0 39.0L59.0 38.0L59.0 37.0L59.0 36.0L59.0 35.0L59.0 34.0L59.0 33.0L59.0 32.0L59.0 31.0L59.0 30.0L59.0 29.0L59.0 28.0L59.0 27.0L59.0 26.0L59.0 25.0L59.0 24.0L59.0 23.0L59.0 22.0L59.0 21.0L59.0 20.0L59.0 19.0L59.0 18.0L59.0 17.0L59.0 16.0L59.0 15.0L59.0 14.0L59.0 13.0L59.0 12.0L59.0 11.0L59.0 10.0L59.0 9.0L59.0 8.0L59.0 7.0Z"/></clipPath><linearGradient id="face-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ECE9E2"/></linearGradient></defs><g clip-path="url(#sil-a)"><g stroke="#6A665E" stroke-width="1.5" stroke-linecap="round" fill="none"><line x1="37.8" y1="7.8" x2="52.1" y2="90.8"/><line x1="37.8" y1="90.8" x2="52.1" y2="7.8"/></g><polygon points="36.4,3.8 32.6,5.7 32.6,94.7 36.4,92.8" fill="#6C685F"/><polygon points="36.4,92.8 32.6,94.7 35.4,94.7 39.2,92.8" fill="#6C685F"/><rect x="36.4" y="3.8" width="2.8" height="89.0" fill="#A7A299" stroke="#585550" stroke-width="0.6"/><polygon points="50.7,3.8 46.9,5.7 46.9,94.7 50.7,92.8" fill="#6C685F"/><polygon points="50.7,92.8 46.9,94.7 49.7,94.7 53.5,92.8" fill="#6C685F"/><rect x="50.7" y="3.8" width="2.8" height="89.0" fill="#A7A299" stroke="#585550" stroke-width="0.6"/></g><g><use href="#g-a" transform="translate(-9.0,4.5)" fill="#8E8A82" stroke="#585550" stroke-width="1.3" stroke-linejoin="round"/><use href="#g-a" transform="translate(-8.6,4.3)" fill="#8E8A82"/><use href="#g-a" transform="translate(-8.2,4.1)" fill="#8E8A82"/><use href="#g-a" transform="translate(-7.8,3.9)" fill="#8E8A82"/><use href="#g-a" transform="translate(-7.4,3.7)" fill="#8E8A82"/><use href="#g-a" transform="translate(-7.0,3.5)" fill="#8E8A82"/><use href="#g-a" transform="translate(-6.5,3.3)" fill="#8E8A82"/><use href="#g-a" transform="translate(-6.1,3.1)" fill="#8E8A82"/><use href="#g-a" transform="translate(-5.7,2.9)" fill="#8E8A82"/><use href="#g-a" transform="translate(-5.3,2.7)" fill="#8E8A82"/><use href="#g-a" transform="translate(-4.9,2.5)" fill="#8E8A82"/><use href="#g-a" transform="translate(-4.5,2.2)" fill="#8E8A82"/><use href="#g-a" transform="translate(-4.1,2.0)" fill="#8E8A82"/><use href="#g-a" transform="translate(-3.7,1.8)" fill="#8E8A82"/><use href="#g-a" transform="translate(-3.3,1.6)" fill="#8E8A82"/><use href="#g-a" transform="translate(-2.9,1.4)" fill="#8E8A82"/><use href="#g-a" transform="translate(-2.5,1.2)" fill="#8E8A82"/><use href="#g-a" transform="translate(-2.0,1.0)" fill="#8E8A82"/><use href="#g-a" transform="translate(-1.6,0.8)" fill="#8E8A82"/><use href="#g-a" transform="translate(-1.2,0.6)" fill="#8E8A82"/><use href="#g-a" transform="translate(-0.8,0.4)" fill="#8E8A82"/><use href="#g-a" transform="translate(-0.4,0.2)" fill="#8E8A82"/></g><use href="#g-a" fill="url(#face-a)" stroke="#5E5A52" stroke-width="1.7" stroke-linejoin="round"/><g clip-path="url(#clip-a)" stroke="#CFC8BA" stroke-width="0.7" opacity="0.55"><line x1="9.0" y1="0" x2="9.0" y2="82.0"/><line x1="18.0" y1="0" x2="18.0" y2="82.0"/><line x1="27.0" y1="0" x2="27.0" y2="82.0"/><line x1="36.0" y1="0" x2="36.0" y2="82.0"/><line x1="45.0" y1="0" x2="45.0" y2="82.0"/><line x1="54.0" y1="0" x2="54.0" y2="82.0"/><line x1="0" y1="9.0" x2="62.5" y2="9.0"/><line x1="0" y1="18.0" x2="62.5" y2="18.0"/><line x1="0" y1="27.0" x2="62.5" y2="27.0"/><line x1="0" y1="36.0" x2="62.5" y2="36.0"/><line x1="0" y1="45.0" x2="62.5" y2="45.0"/><line x1="0" y1="54.0" x2="62.5" y2="54.0"/><line x1="0" y1="63.0" x2="62.5" y2="63.0"/><line x1="0" y1="72.0" x2="62.5" y2="72.0"/><line x1="0" y1="81.0" x2="62.5" y2="81.0"/></g></svg><svg class="char" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.5 97.7"><defs><path id="g-b" d="M12.0 19.0L24.0 7.0L40.0 7.0L52.0 19.0L52.0 67.0L40.0 79.0L24.0 79.0L12.0 67.0ZM26.0 61.0L30.0 65.0L34.0 65.0L38.0 61.0L38.0 25.0L34.0 21.0L30.0 21.0L26.0 25.0Z"/><clipPath id="clip-b"><use href="#g-b"/></clipPath><clipPath id="sil-b"><path d="M24.0 7.0L23.0 8.0L22.0 9.0L21.0 10.0L20.0 11.0L19.0 12.0L18.0 13.0L17.0 14.0L16.0 15.0L15.0 16.0L14.0 17.0L13.0 18.0L12.0 19.0L12.0 20.0L12.0 21.0L12.0 22.0L12.0 23.0L12.0 24.0L12.0 25.0L12.0 26.0L12.0 27.0L12.0 28.0L12.0 29.0L12.0 30.0L12.0 31.0L12.0 32.0L12.0 33.0L12.0 34.0L12.0 35.0L12.0 36.0L12.0 37.0L12.0 38.0L12.0 39.0L12.0 40.0L12.0 41.0L12.0 42.0L12.0 43.0L12.0 44.0L12.0 45.0L12.0 46.0L12.0 47.0L12.0 48.0L12.0 49.0L12.0 50.0L12.0 51.0L12.0 52.0L12.0 53.0L12.0 54.0L12.0 55.0L12.0 56.0L12.0 57.0L12.0 58.0L12.0 59.0L12.0 60.0L12.0 61.0L12.0 62.0L12.0 63.0L12.0 64.0L12.0 65.0L12.0 66.0L12.0 67.0L13.0 68.0L14.0 69.0L15.0 70.0L16.0 71.0L17.0 72.0L18.0 73.0L19.0 74.0L20.0 75.0L21.0 76.0L22.0 77.0L23.0 78.0L24.0 79.0L0.0 79.0L0.0 97.7L55.5 97.7L55.5 79.0L40.0 79.0L41.0 78.0L42.0 77.0L43.0 76.0L44.0 75.0L45.0 74.0L46.0 73.0L47.0 72.0L48.0 71.0L49.0 70.0L50.0 69.0L51.0 68.0L52.0 67.0L52.0 66.0L52.0 65.0L52.0 64.0L52.0 63.0L52.0 62.0L52.0 61.0L52.0 60.0L52.0 59.0L52.0 58.0L52.0 57.0L52.0 56.0L52.0 55.0L52.0 54.0L52.0 53.0L52.0 52.0L52.0 51.0L52.0 50.0L52.0 49.0L52.0 48.0L52.0 47.0L52.0 46.0L52.0 45.0L52.0 44.0L52.0 43.0L52.0 42.0L52.0 41.0L52.0 40.0L52.0 39.0L52.0 38.0L52.0 37.0L52.0 36.0L52.0 35.0L52.0 34.0L52.0 33.0L52.0 32.0L52.0 31.0L52.0 30.0L52.0 29.0L52.0 28.0L52.0 27.0L52.0 26.0L52.0 25.0L52.0 24.0L52.0 23.0L52.0 22.0L52.0 21.0L52.0 20.0L52.0 19.0L51.0 18.0L50.0 17.0L49.0 16.0L48.0 15.0L47.0 14.0L46.0 13.0L45.0 12.0L44.0 11.0L43.0 10.0L42.0 9.0L41.0 8.0L40.0 7.0Z"/></clipPath><linearGradient id="face-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ECE9E2"/></linearGradient></defs><g clip-path="url(#sil-b)"><g stroke="#6A665E" stroke-width="1.5" stroke-linecap="round" fill="none"><line x1="14.7" y1="7.8" x2="38.2" y2="90.8"/><line x1="14.7" y1="90.8" x2="38.2" y2="7.8"/></g><polygon points="13.3,3.8 9.5,5.7 9.5,94.7 13.3,92.8" fill="#6C685F"/><polygon points="13.3,92.8 9.5,94.7 12.3,94.7 16.1,92.8" fill="#6C685F"/><rect x="13.3" y="3.8" width="2.8" height="89.0" fill="#A7A299" stroke="#585550" stroke-width="0.6"/><polygon points="36.8,3.8 33.0,5.7 33.0,94.7 36.8,92.8" fill="#6C685F"/><polygon points="36.8,92.8 33.0,94.7 35.8,94.7 39.6,92.8" fill="#6C685F"/><rect x="36.8" y="3.8" width="2.8" height="89.0" fill="#A7A299" stroke="#585550" stroke-width="0.6"/></g><g><use href="#g-b" transform="translate(-9.0,4.5)" fill="#8E8A82" stroke="#585550" stroke-width="1.3" stroke-linejoin="round"/><use href="#g-b" transform="translate(-8.6,4.3)" fill="#8E8A82"/><use href="#g-b" transform="translate(-8.2,4.1)" fill="#8E8A82"/><use href="#g-b" transform="translate(-7.8,3.9)" fill="#8E8A82"/><use href="#g-b" transform="translate(-7.4,3.7)" fill="#8E8A82"/><use href="#g-b" transform="translate(-7.0,3.5)" fill="#8E8A82"/><use href="#g-b" transform="translate(-6.5,3.3)" fill="#8E8A82"/><use href="#g-b" transform="translate(-6.1,3.1)" fill="#8E8A82"/><use href="#g-b" transform="translate(-5.7,2.9)" fill="#8E8A82"/><use href="#g-b" transform="translate(-5.3,2.7)" fill="#8E8A82"/><use href="#g-b" transform="translate(-4.9,2.5)" fill="#8E8A82"/><use href="#g-b" transform="translate(-4.5,2.2)" fill="#8E8A82"/><use href="#g-b" transform="translate(-4.1,2.0)" fill="#8E8A82"/><use href="#g-b" transform="translate(-3.7,1.8)" fill="#8E8A82"/><use href="#g-b" transform="translate(-3.3,1.6)" fill="#8E8A82"/><use href="#g-b" transform="translate(-2.9,1.4)" fill="#8E8A82"/><use href="#g-b" transform="translate(-2.5,1.2)" fill="#8E8A82"/><use href="#g-b" transform="translate(-2.0,1.0)" fill="#8E8A82"/><use href="#g-b" transform="translate(-1.6,0.8)" fill="#8E8A82"/><use href="#g-b" transform="translate(-1.2,0.6)" fill="#8E8A82"/><use href="#g-b" transform="translate(-0.8,0.4)" fill="#8E8A82"/><use href="#g-b" transform="translate(-0.4,0.2)" fill="#8E8A82"/></g><use href="#g-b" fill="url(#face-b)" stroke="#5E5A52" stroke-width="1.7" stroke-linejoin="round"/><g clip-path="url(#clip-b)" stroke="#CFC8BA" stroke-width="0.7" opacity="0.55"><line x1="9.0" y1="0" x2="9.0" y2="82.0"/><line x1="18.0" y1="0" x2="18.0" y2="82.0"/><line x1="27.0" y1="0" x2="27.0" y2="82.0"/><line x1="36.0" y1="0" x2="36.0" y2="82.0"/><line x1="45.0" y1="0" x2="45.0" y2="82.0"/><line x1="54.0" y1="0" x2="54.0" y2="82.0"/><line x1="0" y1="9.0" x2="55.5" y2="9.0"/><line x1="0" y1="18.0" x2="55.5" y2="18.0"/><line x1="0" y1="27.0" x2="55.5" y2="27.0"/><line x1="0" y1="36.0" x2="55.5" y2="36.0"/><line x1="0" y1="45.0" x2="55.5" y2="45.0"/><line x1="0" y1="54.0" x2="55.5" y2="54.0"/><line x1="0" y1="63.0" x2="55.5" y2="63.0"/><line x1="0" y1="72.0" x2="55.5" y2="72.0"/><line x1="0" y1="81.0" x2="55.5" y2="81.0"/></g></svg><svg class="char" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 62.5 97.7"><defs><path id="g-c" d="M12.0 7.0L29.0 7.0L29.0 47.0L42.0 47.0L42.0 7.0L59.0 7.0L59.0 79.0L42.0 79.0L42.0 64.0L12.0 64.0Z"/><clipPath id="clip-c"><use href="#g-c"/></clipPath><clipPath id="sil-c"><path d="M12.0 7.0L12.0 8.0L12.0 9.0L12.0 10.0L12.0 11.0L12.0 12.0L12.0 13.0L12.0 14.0L12.0 15.0L12.0 16.0L12.0 17.0L12.0 18.0L12.0 19.0L12.0 20.0L12.0 21.0L12.0 22.0L12.0 23.0L12.0 24.0L12.0 25.0L12.0 26.0L12.0 27.0L12.0 28.0L12.0 29.0L12.0 30.0L12.0 31.0L12.0 32.0L12.0 33.0L12.0 34.0L12.0 35.0L12.0 36.0L12.0 37.0L12.0 38.0L12.0 39.0L12.0 40.0L12.0 41.0L12.0 42.0L12.0 43.0L12.0 44.0L12.0 45.0L12.0 46.0L12.0 47.0L12.0 48.0L12.0 49.0L12.0 50.0L12.0 51.0L12.0 52.0L12.0 53.0L12.0 54.0L12.0 55.0L12.0 56.0L12.0 57.0L12.0 58.0L12.0 59.0L12.0 60.0L12.0 61.0L12.0 62.0L12.0 63.0L12.0 64.0L42.0 65.0L42.0 66.0L42.0 67.0L42.0 68.0L42.0 69.0L42.0 70.0L42.0 71.0L42.0 72.0L42.0 73.0L42.0 74.0L42.0 75.0L42.0 76.0L42.0 77.0L42.0 78.0L42.0 79.0L0.0 79.0L0.0 97.7L62.5 97.7L62.5 79.0L59.0 79.0L59.0 78.0L59.0 77.0L59.0 76.0L59.0 75.0L59.0 74.0L59.0 73.0L59.0 72.0L59.0 71.0L59.0 70.0L59.0 69.0L59.0 68.0L59.0 67.0L59.0 66.0L59.0 65.0L59.0 64.0L59.0 63.0L59.0 62.0L59.0 61.0L59.0 60.0L59.0 59.0L59.0 58.0L59.0 57.0L59.0 56.0L59.0 55.0L59.0 54.0L59.0 53.0L59.0 52.0L59.0 51.0L59.0 50.0L59.0 49.0L59.0 48.0L59.0 47.0L59.0 46.0L59.0 45.0L59.0 44.0L59.0 43.0L59.0 42.0L59.0 41.0L59.0 40.0L59.0 39.0L59.0 38.0L59.0 37.0L59.0 36.0L59.0 35.0L59.0 34.0L59.0 33.0L59.0 32.0L59.0 31.0L59.0 30.0L59.0 29.0L59.0 28.0L59.0 27.0L59.0 26.0L59.0 25.0L59.0 24.0L59.0 23.0L59.0 22.0L59.0 21.0L59.0 20.0L59.0 19.0L59.0 18.0L59.0 17.0L59.0 16.0L59.0 15.0L59.0 14.0L59.0 13.0L59.0 12.0L59.0 11.0L59.0 10.0L59.0 9.0L59.0 8.0L59.0 7.0Z"/></clipPath><linearGradient id="face-c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ECE9E2"/></linearGradient></defs><g clip-path="url(#sil-c)"><g stroke="#6A665E" stroke-width="1.5" stroke-linecap="round" fill="none"><line x1="37.8" y1="7.8" x2="52.1" y2="90.8"/><line x1="37.8" y1="90.8" x2="52.1" y2="7.8"/></g><polygon points="36.4,3.8 32.6,5.7 32.6,94.7 36.4,92.8" fill="#6C685F"/><polygon points="36.4,92.8 32.6,94.7 35.4,94.7 39.2,92.8" fill="#6C685F"/><rect x="36.4" y="3.8" width="2.8" height="89.0" fill="#A7A299" stroke="#585550" stroke-width="0.6"/><polygon points="50.7,3.8 46.9,5.7 46.9,94.7 50.7,92.8" fill="#6C685F"/><polygon points="50.7,92.8 46.9,94.7 49.7,94.7 53.5,92.8" fill="#6C685F"/><rect x="50.7" y="3.8" width="2.8" height="89.0" fill="#A7A299" stroke="#585550" stroke-width="0.6"/></g><g><use href="#g-c" transform="translate(-9.0,4.5)" fill="#8E8A82" stroke="#585550" stroke-width="1.3" stroke-linejoin="round"/><use href="#g-c" transform="translate(-8.6,4.3)" fill="#8E8A82"/><use href="#g-c" transform="translate(-8.2,4.1)" fill="#8E8A82"/><use href="#g-c" transform="translate(-7.8,3.9)" fill="#8E8A82"/><use href="#g-c" transform="translate(-7.4,3.7)" fill="#8E8A82"/><use href="#g-c" transform="translate(-7.0,3.5)" fill="#8E8A82"/><use href="#g-c" transform="translate(-6.5,3.3)" fill="#8E8A82"/><use href="#g-c" transform="translate(-6.1,3.1)" fill="#8E8A82"/><use href="#g-c" transform="translate(-5.7,2.9)" fill="#8E8A82"/><use href="#g-c" transform="translate(-5.3,2.7)" fill="#8E8A82"/><use href="#g-c" transform="translate(-4.9,2.5)" fill="#8E8A82"/><use href="#g-c" transform="translate(-4.5,2.2)" fill="#8E8A82"/><use href="#g-c" transform="translate(-4.1,2.0)" fill="#8E8A82"/><use href="#g-c" transform="translate(-3.7,1.8)" fill="#8E8A82"/><use href="#g-c" transform="translate(-3.3,1.6)" fill="#8E8A82"/><use href="#g-c" transform="translate(-2.9,1.4)" fill="#8E8A82"/><use href="#g-c" transform="translate(-2.5,1.2)" fill="#8E8A82"/><use href="#g-c" transform="translate(-2.0,1.0)" fill="#8E8A82"/><use href="#g-c" transform="translate(-1.6,0.8)" fill="#8E8A82"/><use href="#g-c" transform="translate(-1.2,0.6)" fill="#8E8A82"/><use href="#g-c" transform="translate(-0.8,0.4)" fill="#8E8A82"/><use href="#g-c" transform="translate(-0.4,0.2)" fill="#8E8A82"/></g><use href="#g-c" fill="url(#face-c)" stroke="#5E5A52" stroke-width="1.7" stroke-linejoin="round"/><g clip-path="url(#clip-c)" stroke="#CFC8BA" stroke-width="0.7" opacity="0.55"><line x1="9.0" y1="0" x2="9.0" y2="82.0"/><line x1="18.0" y1="0" x2="18.0" y2="82.0"/><line x1="27.0" y1="0" x2="27.0" y2="82.0"/><line x1="36.0" y1="0" x2="36.0" y2="82.0"/><line x1="45.0" y1="0" x2="45.0" y2="82.0"/><line x1="54.0" y1="0" x2="54.0" y2="82.0"/><line x1="0" y1="9.0" x2="62.5" y2="9.0"/><line x1="0" y1="18.0" x2="62.5" y2="18.0"/><line x1="0" y1="27.0" x2="62.5" y2="27.0"/><line x1="0" y1="36.0" x2="62.5" y2="36.0"/><line x1="0" y1="45.0" x2="62.5" y2="45.0"/><line x1="0" y1="54.0" x2="62.5" y2="54.0"/><line x1="0" y1="63.0" x2="62.5" y2="63.0"/><line x1="0" y1="72.0" x2="62.5" y2="72.0"/><line x1="0" y1="81.0" x2="62.5" y2="81.0"/></g></svg></div>
 
-  <div class="social">
-    <a class="link" href="/">take me home</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="frame">
+    <div class="corkboard">
+
+      <header class="site-header paper-strip">
+        <a class="brand" href="/">Reach Out LA</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" hidden>Menu</button>
+        <nav id="main-nav" class="main-nav" aria-label="Main">
+          <ul>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#updates">Updates</a></li>
+            <li><a href="/#get-involved">Get involved</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/civfix">civfix</a></li>
+            <li><a href="/press">Press</a></li>
+            <li><a class="nav-donate" href="https://buy.stripe.com/14A5kC47b7XLa85fvZ9Zm00">Donate</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main id="main" class="article-main">
+        <div class="note notfound-note" style="--tilt:-0.8deg">
+          <span class="pin" style="--pin:var(--pin-coral)"></span>
+          <p class="article-kicker">Error 404</p>
+          <h1>This page isn’t on the board</h1>
+          <p>
+            The page you’re looking for may have moved, or the address might have a typo.
+            Here are some good places to start instead:
+          </p>
+          <ul class="about-links">
+            <li><a href="/">Go to the homepage <span aria-hidden="true">→</span></a></li>
+            <li><a href="/about">Learn about Reach Out LA <span aria-hidden="true">→</span></a></li>
+            <li><a href="/updates">Read our latest updates <span aria-hidden="true">→</span></a></li>
+            <li><a href="/civfix">See how civfix works <span aria-hidden="true">→</span></a></li>
+          </ul>
+        </div>
+      </main>
+
+      <footer class="site-footer note" style="--tilt:0.3deg">
+        <span class="tape-strip"></span>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#updates">Updates</a></li>
+            <li><a href="/#get-involved">Get involved</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/civfix">civfix</a></li>
+            <li><a href="/press">Press</a></li>
+            <li><a href="https://buy.stripe.com/14A5kC47b7XLa85fvZ9Zm00">Donate</a></li>
+          </ul>
+        </nav>
+        <p>
+          Reach Out Los Angeles INC is a registered 501(c)(3) nonprofit organization.<br>
+          EIN 41-2454206 · 3214 Veteran Ave, Los Angeles, CA 90034 ·
+          <a href="mailto:roman@reachoutla.org">roman@reachoutla.org</a>
+        </p>
+      </footer>
+
+    </div>
   </div>
 
-  <script src="/vendor/gsap.min.js"></script>
-  <script>
-    // Animation ported from bongbong.com/404 (letters fall in, spin, elastic-settle,
-    // then react to the cursor). Unchanged except for the safety guard below.
-    const charData = [];
-
-    window.onresize = function () {
-      document.body.height = window.innerHeight;
-
-      charData.forEach(function (data) {
-        const bounds = data.element.getBoundingClientRect();
-        data.pageX = bounds.left + bounds.width / 2;
-        data.pageY = bounds.top + bounds.height / 2;
-        data.width = bounds.width;
-        data.height = bounds.height;
-      });
-    };
-
-    const init = () => {
-      const chars = document.querySelectorAll('.char');
-      const links = document.querySelectorAll('.link');
-
-      // If GSAP failed to load or the visitor prefers reduced motion, skip the
-      // animation entirely and just reveal everything — never leave it blank.
-      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!window.gsap || reduceMotion) {
-        chars.forEach(function (c) { c.style.opacity = 1; });
-        links.forEach(function (l) { l.style.transform = 'none'; });
-        return;
-      }
-
-      const durationScalar = 1.25;
-      const input = {
-        x: window.innerWidth / 2,
-        y: window.innerHeight / 2,
-        lastX: window.innerWidth / 2,
-        lastY: window.innerHeight / 2
-      };
-      const amplitude = 10;
-      let delay = 0;
-      let tl;
-
-      const transitionIn = () => {
-        chars.forEach((char, index) => {
-          if (index < chars.length - 1) {
-            tl = gsap.timeline();
-          } else {
-            tl = gsap.timeline({
-              onComplete: () => {
-                window.onresize();
-                update();
-              }
-            });
-          }
-
-          const bounds = char.getBoundingClientRect();
-          charData.push({
-            element: char,
-            x: 0,
-            y: 0,
-            targetX: 0,
-            targetY: 0,
-            pageX: bounds.left + bounds.width / 2,
-            pageY: bounds.top + bounds.height / 2,
-            width: bounds.width,
-            height: bounds.height,
-            vx: 0,
-            vy: 0
-          });
-
-          const scalar = Math.random() < 0.5 ? -1 : 1;
-
-          tl.fromTo(
-            char,
-            {
-              y: -window.innerHeight / 2,
-              opacity: 0,
-              scale: 0.5,
-              rotation: 360 * scalar
-            },
-            {
-              y: window.innerHeight / 2,
-              opacity: 1,
-              scale: 1,
-              rotation: 180 * scalar,
-              duration: 1 * durationScalar,
-              ease: 'power3.in',
-              delay: delay
-            }
-          );
-
-          tl.to(char, {
-            y: 0,
-            rotation: 0,
-            duration: 2 * durationScalar,
-            ease: 'elastic'
-          });
-
-          delay += 0.2;
-        });
-
-        gsap.to(links, {
-          duration: 1.2,
-          rotation: 0,
-          y: 0,
-          stagger: 0.1,
-          ease: 'elastic',
-          delay: delay + 0.4
-        });
-      };
-
-      const distance = (x1, x2, y1, y2) => {
-        const a = x1 - x2;
-        const b = y1 - y2;
-        return Math.sqrt(a * a + b * b);
-      };
-
-      const smoothstep = (min, max, value) => {
-        const x = Math.max(0, Math.min(1, (value - min) / (max - min)));
-        return x * x * (3 - 2 * x);
-      };
-
-      const update = () => {
-        requestAnimationFrame(update);
-
-        const velX = (input.x - input.lastX) * amplitude;
-        const velY = (input.y - input.lastY) * amplitude;
-        const friction = 0.7;
-
-        charData.forEach((data, index) => {
-          const dist = distance(input.x, data.pageX, input.y, data.pageY);
-          const scalar = smoothstep(data.width + data.height, 0, dist) * 0.1;
-
-          data.targetX = velX * scalar;
-          data.targetY = velY * scalar;
-
-          const dx = data.targetX - data.x * 0.1;
-          const dy = data.targetY - data.y * 0.1;
-          data.vx += dx;
-          data.vy += dy;
-          data.vx *= friction;
-          data.vy *= friction;
-
-          data.x += data.vx;
-          data.y += data.vy;
-
-          const r = Math.max(Math.min(180 * (data.x + data.y) * 0.0025, 270), -270);
-
-          data.element.style.transform = `translate(${data.x}px, ${data.y}px) rotate(${r}deg)`;
-        });
-
-        input.lastX = input.x;
-        input.lastY = input.y;
-      };
-
-      const handleMouseMove = e => {
-        input.x = e.clientX;
-        input.y = e.clientY;
-      };
-
-      const handleTouchMove = e => {
-        const touch = e.changedTouches[0];
-        input.x = touch.clientX;
-        input.y = touch.clientY;
-      };
-
-      window.addEventListener('mousemove', handleMouseMove, false);
-      window.addEventListener('touchmove', handleTouchMove, false);
-
-      transitionIn();
-    };
-
-    document.addEventListener('DOMContentLoaded', init);
-  </script>
+  <script src="/assets/js/menu.js?v=4"></script>
 </body>
 </html>

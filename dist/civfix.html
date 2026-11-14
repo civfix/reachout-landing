@@ -1,182 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <base href="/" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-
-  <title>Civfix | Reach Out LA</title>
-  <meta name="description" content="A 501(c)(3) nonprofit using software and research to connect residents with each other and their local governments." />
-  <link rel="canonical" href="https://www.reachoutla.org/civfix" />
-  <meta name="author" content="Reach Out Los Angeles" />
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="theme-color" content="#FDFCFA" />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Reach Out LA" />
-  <meta property="og:title" content="Civfix | Reach Out LA" />
-  <meta property="og:description" content="A 501(c)(3) nonprofit using software and research to connect residents with each other and their local governments." />
-  <meta property="og:url" content="https://www.reachoutla.org/civfix" />
-  <meta property="og:image" content="https://www.reachoutla.org/images/card-civfix2.webp" />
-  <meta property="og:image:alt" content="Reach Out LA" />
-  <meta property="og:locale" content="en_US" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Civfix | Reach Out LA" />
-  <meta name="twitter:description" content="A 501(c)(3) nonprofit using software and research to connect residents with each other and their local governments." />
-  <meta name="twitter:image" content="https://www.reachoutla.org/images/card-civfix2.webp" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="styles.css?v=hw7" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["NGO", "Organization"],
-        "@id": "https://www.reachoutla.org/#organization",
-        "name": "Reach Out LA",
-        "alternateName": "Reach Out Los Angeles",
-        "legalName": "Reach Out Los Angeles",
-        "url": "https://www.reachoutla.org/",
-        "logo": "https://www.reachoutla.org/favicon.svg",
-        "image": "https://www.reachoutla.org/images/card-about.webp",
-        "email": "roman@reachoutla.org",
-        "description": "A 501(c)(3) nonprofit using software and research to connect residents with each other and their local governments.",
-        "foundingLocation": "Los Angeles, California",
-        "address": { "@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US" },
-        "areaServed": { "@type": "Country", "name": "United States" },
-        "nonprofitStatus": "Nonprofit501c3",
-        "contactPoint": { "@type": "ContactPoint", "email": "roman@reachoutla.org", "contactType": "general inquiries" }
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://civfix.org/#app",
-        "name": "Civfix",
-        "applicationCategory": "GovernmentApplication",
-        "operatingSystem": "iOS, Android, Web",
-        "url": "https://civfix.org/",
-        "description": "Report neighborhood problems in seconds. Civfix automatically routes each report to the right city agency, lets you track follow-ups, and helps neighbors organize community cleanups.",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "publisher": { "@id": "https://www.reachoutla.org/#organization" }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://www.reachoutla.org/civfix#webpage",
-        "url": "https://www.reachoutla.org/civfix",
-        "name": "Civfix | Reach Out LA",
-        "isPartOf": { "@id": "https://www.reachoutla.org/#website" },
-        "about": { "@id": "https://civfix.org/#app" },
-        "inLanguage": "en-US"
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.reachoutla.org/" },
-          { "@type": "ListItem", "position": 2, "name": "Civfix", "item": "https://www.reachoutla.org/civfix" }
-        ]
-      }
-    ]
-  }
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="civfix is our resident reporting and volunteer hub: report a problem in under a minute, see what neighbors are flagging, and join or host a cleanup.">
+  <link rel="canonical" href="https://www.reachoutla.org/civfix">
+  <meta name="theme-color" content="#F3EBDD">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.reachoutla.org/civfix">
+  <meta property="og:site_name" content="Reach Out LA">
+  <meta property="og:title" content="civfix">
+  <meta property="og:description" content="civfix is our resident reporting and volunteer hub: report a problem in under a minute, see what neighbors are flagging, and join or host a cleanup.">
+  <meta property="og:image" content="https://www.reachoutla.org/images/updates/civfix-logo.png">
+  <meta property="og:image:alt" content="civfix">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>civfix | Reach Out LA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600&family=Manrope:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/home.css?v=3">
+  <link rel="stylesheet" href="/assets/css/civfix.css?v=4">
 </head>
 <body>
-  <!-- Crawlable content + navigation for search engines and no-JS clients. -->
-  <div class="sr-only">
-    <h1>Civfix - iOS, Android, and Web App</h1>
-    <p>Report neighborhood problems in seconds. Civfix automatically routes each report to the right city agency, lets you track follow-ups, and helps neighbors organize community cleanups.</p>
-    <ul>
-      <li>Web app: <a href="https://civfix.org/" rel="noopener">civfix.org</a></li>
-      <li>iOS: <a href="https://apps.apple.com/us/app/civfix/id6781838072" rel="noopener">Download Civfix on the App Store</a></li>
-      <li>Android: <a href="https://android.civfix.org" rel="noopener">android.civfix.org</a></li>
-    </ul>
-    <nav aria-label="Reach Out LA sections">
-      <a href="/">Home</a>
-      <a href="/about">About - who we are</a>
-      <a href="/mission">Mission - our motivations</a>
-      <a href="/civfix">Civfix - the app we built</a>
-      <a href="/help">Help Us - donate or contact</a>
-    </nav>
-  </div>
 
-  <div class="stage" id="stage">
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-    <div class="logo" id="logo" aria-label="Reach Out LA"><span class="char">R</span><span class="char">e</span><span class="char">a</span><span class="char">c</span><span class="char">h</span><span class="space"></span><span class="char">O</span><span class="char">u</span><span class="char">t</span><span class="space"></span><span class="char">L</span><span class="char">A</span></div>
+  <div class="frame">
+    <div class="corkboard">
 
-    <div class="deck" id="deck">
-      <div class="deck-card" data-key="about" data-rot="-3">
-        <div class="deck-inner">
-          <div class="deck-photo about"></div>
-          <div class="deck-grain"></div>
-          <div class="deck-scrim"></div>
-          <div class="deck-label">
-            <div class="deck-title">About</div>
-            <div class="deck-sub">Who we are <span class="arrow">&#8594;</span></div>
+      <header class="site-header paper-strip">
+        <a class="brand" href="/">Reach Out LA</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" hidden>Menu</button>
+        <nav id="main-nav" class="main-nav" aria-label="Main">
+          <ul>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#updates">Updates</a></li>
+            <li><a href="/#get-involved">Get involved</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/civfix" aria-current="page">civfix</a></li>
+            <li><a href="/press">Press</a></li>
+            <li><a href="https://buy.stripe.com/14A5kC47b7XLa85fvZ9Zm00" class="nav-donate">Donate</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Every "civfix" inside <main> is drawn as the colorful civfix wordmark by civfix.js -->
+      <main id="main">
+
+        <!-- ===== Top: what civfix is (left) + the map (right) ===== -->
+        <section class="cf-top">
+
+          <div class="cf-top-text">
+            <h1 class="label cf-title" style="--tilt:-1.5deg">civfix</h1>
+
+            <div class="note cf-lead-note" style="--tilt:0.5deg">
+              <span class="pin" style="--pin:var(--pin-coral)"></span>
+              <p class="lead">Our resident reporting and volunteer hub.</p>
+              <p>
+                See a problem, like an illegally dumped couch, graffiti, a pothole or a streetlight that never came back on?
+                Drop a pin and snap a photo. civfix works out which agency is responsible and forwards your report,
+                so you don’t have to know who to call.
+              </p>
+              <p>
+                The same map shows what neighbors have reported and which cleanups are happening nearby,
+                so civfix is equal parts <em>report the problem</em> and <em>help fix it</em>.
+                It works anywhere in the world.
+              </p>
+            </div>
+
+            <aside class="flyer get-app" style="--tilt:-1deg" aria-labelledby="get-app-title">
+              <span class="pin" style="--pin:var(--pin-blue)"></span>
+              <h2 id="get-app-title">Get civfix</h2>
+              <p>On your phone for reporting on the spot, or in any web browser.</p>
+              <ul class="badges">
+                <li><a href="https://apps.apple.com/us/app/civfix/id6781838072"><img src="/images/app-store-badge.svg" width="120" height="40" alt="Download civfix on the App Store"></a></li>
+                <li><a href="https://android.civfix.org"><img src="/images/google-play-badge.svg" width="135" height="40" alt="Get civfix on Google Play"></a></li>
+                <li><a href="https://civfix.org"><img src="/images/web-badge.svg" width="120" height="40" alt="Visit civfix on the web"></a></li>
+              </ul>
+            </aside>
           </div>
-        </div>
-      </div>
 
-      <div class="deck-card" data-key="mission" data-rot="2.2">
-        <div class="deck-inner">
-          <div class="deck-photo mission"></div>
-          <div class="deck-grain"></div>
-          <div class="deck-scrim"></div>
-          <div class="deck-label">
-            <div class="deck-title">Mission</div>
-            <div class="deck-sub">Our motivations <span class="arrow">&#8594;</span></div>
-          </div>
-        </div>
-      </div>
+          <figure class="map-paper" id="map-paper">
+            <span class="tape-corner tape-corner--tl" aria-hidden="true"></span>
+            <span class="tape-corner tape-corner--tr" aria-hidden="true"></span>
+            <span class="tape-corner tape-corner--bl" aria-hidden="true"></span>
+            <span class="tape-corner tape-corner--br" aria-hidden="true"></span>
+            <div class="map-wrap">
+              <img class="map-img" src="/assets/img/la-map.svg" width="1000" height="1021"
+                   alt="Street map of central Los Angeles that fades out at the edges, with example report and cleanup pins scattered across the streets.">
+              <!-- civfix.js fills this with the example pins -->
+              <div class="map-pins" id="map-pins" aria-hidden="true"></div>
+            </div>
+            <figcaption>
+              Los Angeles area shown, but civfix works anywhere. Example pins only.
+              Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.
+            </figcaption>
 
-      <div class="deck-card" data-key="civfix" data-rot="-2.2">
-        <div class="deck-inner">
-          <div class="deck-photo civfix"></div>
-          <div class="deck-grain"></div>
-          <div class="deck-scrim"></div>
-          <div class="deck-label">
-            <div class="deck-title">Civfix</div>
-            <div class="deck-sub">The app we built <span class="arrow">&#8594;</span></div>
-          </div>
-        </div>
-      </div>
+            <aside class="needs-info legend" style="--tilt:-3deg" aria-labelledby="legend-title">
+              <p class="needs-label" id="legend-title">Map key</p>
+              <ul class="legend-list">
+                <li><span class="legend-pin legend-pin--report" aria-hidden="true"></span> Report</li>
+                <li><span class="legend-pin legend-pin--cleanup" aria-hidden="true"></span> Cleanup</li>
+              </ul>
+              <p class="legend-note">These pins are <strong>examples</strong>, not real reports.</p>
+            </aside>
+          </figure>
 
-      <div class="deck-card" data-key="help" data-rot="3">
-        <div class="deck-inner">
-          <div class="deck-photo help"></div>
-          <div class="deck-grain"></div>
-          <div class="deck-scrim"></div>
-          <div class="deck-label">
-            <div class="deck-title">Help Us</div>
-            <div class="deck-sub">Donate or contact <span class="arrow">&#8594;</span></div>
+        </section>
+
+        <!-- ===== How it works ===== -->
+        <section class="section cf-steps-section" aria-labelledby="steps-title">
+          <h2 id="steps-title" class="label" style="--tilt:1deg">How it works</h2>
+          <div class="cf-steps">
+            <article class="index-step" style="--tilt:-1.2deg">
+              <span class="step-num" aria-hidden="true">1</span>
+              <h3>Report it</h3>
+              <p>Take a photo or short video. The app tags the exact spot and you pick the issue: illegal dumping, graffiti, a pothole or broken sidewalk, a broken streetlight or flooding, overgrown brush, or something else.</p>
+            </article>
+            <article class="index-step" style="--tilt:0.8deg">
+              <span class="step-num" aria-hidden="true">2</span>
+              <h3>We route it</h3>
+              <p>civfix works out which agency is responsible from where your pin is, forwards the report, and lets you track it and follow up.</p>
+            </article>
+            <article class="index-step" style="--tilt:-0.6deg">
+              <span class="step-num" aria-hidden="true">3</span>
+              <h3>Clean up together</h3>
+              <p>Anyone can host a cleanup. Neighbors RSVP, see who’s going and what to bring, and coordinate in a group chat right in the app.</p>
+            </article>
+            <article class="index-step" style="--tilt:1.4deg">
+              <span class="step-num" aria-hidden="true">4</span>
+              <h3>Stay in the loop</h3>
+              <p>Follow organizers and neighbors, message people directly, and keep up with a feed of what’s happening in your neighborhood.</p>
+            </article>
           </div>
-        </div>
-      </div>
+        </section>
+
+        <!-- ===== Inside the app ===== -->
+        <section class="section cf-shots" aria-labelledby="shots-title">
+          <h2 id="shots-title" class="label" style="--tilt:-1deg">Inside the app</h2>
+          <ul class="shots">
+            <li class="photo shot" style="--tilt:-2deg">
+              <span class="pin" style="--pin:var(--pin-orange)"></span>
+              <img src="/images/civfix-photo-3.webp" width="431" height="936" loading="lazy"
+                   alt="civfix screen asking “What is it?” with issue types such as dumping, graffiti and broken infrastructure.">
+              <p class="shot-cap">Photo or video, automatic location, and an issue type, routed to the right agency.</p>
+            </li>
+            <li class="photo shot" style="--tilt:1.5deg">
+              <span class="pin" style="--pin:var(--pin-green)"></span>
+              <img src="/images/civfix-report-details.webp" width="552" height="1200" loading="lazy"
+                   alt="civfix report screen showing a status timeline for a report.">
+              <p class="shot-cap">A live status timeline: submitted → forwarded to LA Bureau of Street Services → verified → cleanup scheduled.</p>
+            </li>
+            <li class="photo shot" style="--tilt:-1deg">
+              <span class="pin" style="--pin:var(--pin-blue)"></span>
+              <img src="/images/civfix-event-details.webp" width="552" height="1200" loading="lazy"
+                   alt="civfix cleanup event screen with RSVP details and a group chat.">
+              <p class="shot-cap">Join or host a cleanup: RSVP, who’s going, what to bring, and a built-in group chat.</p>
+            </li>
+          </ul>
+        </section>
+
+        <!-- ===== Call to action ===== -->
+        <section class="section cf-cta">
+          <div class="note cf-cta-note" style="--tilt:0.6deg">
+            <span class="tape-strip"></span>
+            <h2>Put your neighborhood on the map</h2>
+            <p>Report what you see, or round up a few neighbors and host a cleanup. civfix is a program of Reach Out Los Angeles, a 501(c)(3) nonprofit.</p>
+            <div class="cta-row">
+              <a class="btn btn-coral" href="https://civfix.org">Open civfix</a>
+              <a class="btn btn-outline" href="https://buy.stripe.com/14A5kC47b7XLa85fvZ9Zm00">Support civfix</a>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="site-footer note" style="--tilt:0.3deg">
+        <span class="tape-strip"></span>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#updates">Updates</a></li>
+            <li><a href="/#get-involved">Get involved</a></li>
+            <li><a href="/team">Team</a></li>
+            <li><a href="/civfix" aria-current="page">civfix</a></li>
+            <li><a href="/press">Press</a></li>
+            <li><a href="https://buy.stripe.com/14A5kC47b7XLa85fvZ9Zm00">Donate</a></li>
+          </ul>
+        </nav>
+        <p>
+          Reach Out Los Angeles INC is a registered 501(c)(3) nonprofit organization.<br>
+          EIN 41-2454206 · 3214 Veteran Ave, Los Angeles, CA 90034 ·
+          <a href="mailto:roman@reachoutla.org">roman@reachoutla.org</a>
+        </p>
+      </footer>
+
     </div>
   </div>
 
-  <div class="footer" id="footer">
-    Reach Out Los Angeles INC is a registered 501(&#8204;c)(3) non&#8209;profit organization<br>
-    EIN 41-2454206 &middot; 3214 Veteran Ave, Los Angeles, CA 90034
-  </div>
-
-  <button class="page-back" id="pageBack" aria-label="Back to home">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
-    <span>Back</span>
-  </button>
-
-  <main class="page" id="page"></main>
-
-  <script src="image-slot.js"></script>
-  <script src="vendor/gsap.min.js"></script>
-  <script src="content.js"></script>
-  <script src="app.js?v=hw7"></script>
-
-  <script src="router.js"></script>
+  <script src="/assets/js/menu.js?v=3"></script>
+  <script src="/assets/js/wordmark.js?v=5"></script>
+  <script src="/assets/js/civfix-pins.js?v=3"></script>
+  <script src="/assets/js/civfix.js?v=3"></script>
+  <script src="/assets/js/wiggle.js?v=3"></script>
 </body>
 </html>

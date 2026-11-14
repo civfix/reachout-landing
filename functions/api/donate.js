@@ -29,8 +29,8 @@ const CAMPAIGNS = {
     designation: 'General support',
   },
   holiday: {
-    productName: 'Holiday gift for Civfix, a program of Reach Out Los Angeles',
-    designation: 'Civfix program',
+    productName: 'Holiday gift for civfix, a program of Reach Out Los Angeles',
+    designation: 'civfix program',
   },
 };
 

@@ -524,7 +524,7 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* ---------- The civfix wordmark (same as the app's logo) ----------
    Baloo 2 ExtraBold, tight letter spacing, one color per letter.
-   Colors are Civfix's own light-mode logo colors from civfix.org. */
+   Colors are civfix's own light-mode logo colors from civfix.org. */
 .cf-word {
   font-family: 'Baloo 2', var(--font-head);
   font-weight: 800;

@@ -238,7 +238,7 @@
 .article-body .badges a { display: inline-block; border-radius: 8px; }
 .article-body .badges img { height: 40px; width: auto; }
 
-/* An update card with a photo on top (e.g. the Civfix launch): taller than the others */
+/* An update card with a photo on top (e.g. the civfix launch): taller than the others */
 .update-card--photo { padding: 12px 12px 20px; }
 .update-card--photo .update-photo {
   margin: 0 0 14px;
@@ -259,3 +259,7 @@
 /* "Get to know us" links on the About page */
 .about-links { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 4px; }
 .about-links a { display: inline-block; padding: 6px 0; font-weight: 800; }
+
+/* 404 page note */
+.notfound-note { max-width: 640px; margin: clamp(24px, 5vw, 56px) auto 0; }
+.notfound-note h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.1; margin-bottom: .4em; }

@@ -44,7 +44,7 @@
   });
   if (campaign === 'holiday') {
     document.body.classList.add('theme-holiday');
-    document.title = 'Support Civfix this holiday season — Reach Out LA';
+    document.title = 'Support civfix this holiday season — Reach Out LA';
   }
 
   /* ---------- 2. Amount picker ---------- */
