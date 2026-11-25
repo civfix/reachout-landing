@@ -1,0 +1,543 @@
+/* ==========================================================
+   Reach Out LA — homepage DRAFT styles
+   A neighborhood bulletin board: a wooden frame around cork,
+   with paper notes, photos, flyers and sticky notes pinned on.
+   Rule of thumb: text always sits on paper, never on the cork,
+   so it stays easy to read.
+   ========================================================== */
+
+/* ---------- 1. Design tokens (reusable colors, fonts, sizes) ---------- */
+:root {
+  color-scheme: light;
+
+  --wall:       #F3EBDD;   /* page behind the board: cream */
+  --paper:      #FFFCF5;   /* notes, cards, flyers */
+  --paper-2:    #F7F0E2;   /* slightly darker paper */
+  --ink:        #1E1A16;   /* main text */
+  --ink-2:      #4A433B;   /* secondary text */
+  --line:       rgba(30, 26, 22, 0.14);
+
+  --cork:       #C4935D;
+  --wood:       #7E4F2C;
+
+  --coral:      #C2412F;   /* buttons (white text passes contrast) */
+  --coral-ink:  #A8322B;   /* coral text/links on paper (passes contrast) */
+  --sticky:     #FFE680;   /* "Needs info" sticky notes */
+  --tape:       rgba(240, 228, 200, 0.82);
+
+  /* push-pin colors, borrowed from the current site's palette */
+  --pin-coral:  #ff6361;
+  --pin-orange: #fda006;
+  --pin-yellow: #fed406;
+  --pin-green:  #45d264;
+  --pin-blue:   #69cefa;
+
+  --font-body:  'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-head:  'Baloo 2', ui-sans-serif, system-ui, sans-serif;
+  --font-hand:  'Caveat', 'Segoe Print', cursive;
+
+  /* paper sitting on cork casts a warmer, deeper shadow */
+  --shadow: 0 1px 2px rgba(45, 25, 8, .28), 0 10px 22px -8px rgba(45, 25, 8, .5);
+  --radius: 3px;
+  --max: 1120px;
+  --gutter: clamp(12px, 3.5vw, 40px);
+}
+
+/* ---------- 2. Base ---------- */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.125rem;          /* 18px: comfortable reading size */
+  line-height: 1.6;
+  color: var(--ink);
+  /* Manrope would otherwise turn "(c)" into ©, breaking "501(c)(3)" */
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+  background-color: var(--wall);
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; margin: 0 0 .5em; }
+h2 { font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 800; }
+h3 { font-size: 1.5rem; font-weight: 700; }
+p  { margin: 0 0 1em; }
+
+a { color: var(--coral-ink); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+
+/* Clear focus ring for keyboard users, on every link and button */
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 6px var(--paper);   /* light halo so the ring shows on cork too */
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px; top: -100px;
+  z-index: 10;
+  padding: 10px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 700;
+  border-radius: var(--radius);
+}
+.skip-link:focus { top: 12px; }
+
+.draft-banner {
+  margin: 0;
+  padding: 8px 16px;
+  background: var(--sticky);
+  border-bottom: 2px dashed rgba(30,26,22,.35);
+  font-size: .95rem;
+  text-align: center;
+}
+
+/* ---------- 3. The board: wooden frame + cork ---------- */
+.frame {
+  max-width: 1280px;
+  margin: clamp(6px, 2vw, 28px) auto;
+  padding: clamp(8px, 1.3vw, 18px);
+  border-radius: 8px;
+  background-color: var(--wood);
+  /* wood grain: soft vertical streaks over a warm brown */
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 2px, transparent 2px 11px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 1px, transparent 1px 27px),
+    linear-gradient(180deg, #94603A, #6E4426);
+  box-shadow: 0 2px 4px rgba(45,25,8,.3), 0 24px 48px -20px rgba(45,25,8,.55);
+}
+
+.corkboard {
+  position: relative;
+  padding: var(--gutter) var(--gutter) clamp(28px, 5vw, 56px);
+  border-radius: 3px;
+  background-color: var(--cork);
+  /* cork texture: random dark and light granules (drawn by the browser from "noise"),
+     plus a few big soft patches so the board isn't perfectly even */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .33 0 0 0 0 .19 0 0 0 0 .07 1.7 0 0 0 -.66'/%3E%3C/filter%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .9 0 0 0 0 .74 0 1.6 0 0 -.74'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 60% 25% at 18% 12%, rgba(255,225,180,.22), transparent),
+    radial-gradient(ellipse 50% 20% at 85% 40%, rgba(80,45,15,.16), transparent),
+    radial-gradient(ellipse 55% 22% at 30% 75%, rgba(255,225,180,.18), transparent);
+  background-size: 220px 220px, 100% 100%, 100% 100%, 100% 100%;
+  box-shadow: inset 0 0 0 1px rgba(45,25,8,.35), inset 0 8px 18px rgba(45,25,8,.35);
+}
+
+/* ---------- 4. Things you can pin up ---------- */
+
+/* Anything with --tilt gets a slight, uneven rotation */
+.note, .card, .flyer, .photo, .needs-info, .label, .scrap, .paper-strip {
+  transform: rotate(var(--tilt, 0deg));
+}
+
+/* A sheet of paper */
+.note, .card, .flyer {
+  position: relative;
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.note { padding: clamp(22px, 4vw, 40px); }
+
+/* Push-pin. Color comes from --pin; position from --x (defaults to the middle). */
+.pin {
+  position: absolute;
+  top: -8px;
+  left: var(--x, 50%);
+  width: 20px; height: 20px;
+  margin-left: -10px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 32%, rgba(255,255,255,.75) 0 2px, transparent 3.5px),
+    radial-gradient(circle at 50% 50%, var(--pin, var(--pin-coral)) 0 58%, rgba(0,0,0,.35) 100%);
+  box-shadow: 1px 4px 4px rgba(45,25,8,.45);
+  z-index: 2;
+}
+
+/* Strip of masking tape across the top of something */
+.tape-strip, .tape::before {
+  content: "";
+  position: absolute;
+  top: -12px; left: 50%;
+  width: 96px; height: 26px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: var(--tape);
+  box-shadow: 0 1px 2px rgba(45,25,8,.15);
+  z-index: 2;
+}
+
+/* A photo print: white border */
+.photo {
+  position: relative;
+  margin: 0;
+  background: #fff;
+  padding: 10px 10px 14px;
+  box-shadow: var(--shadow);
+}
+.photo img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+
+/* Section headings: a label of paper taped to the cork */
+.label {
+  position: relative;
+  width: fit-content;
+  margin: 0 0 32px;
+  padding: 6px 22px 4px;
+  font-size: clamp(1.7rem, 4.5vw, 2.4rem);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+.label::before {   /* small piece of tape on the left end */
+  content: "";
+  position: absolute;
+  top: -10px; left: -14px;
+  width: 56px; height: 22px;
+  transform: rotate(-28deg);
+  background: var(--tape);
+  box-shadow: 0 1px 2px rgba(45,25,8,.15);
+}
+
+/* Handwritten scrap of paper: decoration only (hidden from screen readers in the HTML) */
+.scrap {
+  display: inline-block;
+  width: fit-content;
+  margin: 0;
+  padding: 4px 14px 6px;
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  line-height: 1.1;
+  color: var(--coral-ink);
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+/* "Needs info" sticky note: visible placeholder, never fake content */
+.needs-info {
+  background: var(--sticky);
+  padding: 22px 22px 18px;
+  box-shadow: var(--shadow);
+  font-size: 1rem;
+  border-bottom-right-radius: 18px 6px;   /* slightly curled corner */
+}
+.needs-label {
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+/* ---------- 5. Header: a paper strip with the navigation ---------- */
+.site-header {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 8px 14px 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: relative;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  --tilt: -0.3deg;
+}
+.site-header::before, .site-header::after {   /* tape on both ends */
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 64px; height: 22px;
+  background: var(--tape);
+  box-shadow: 0 1px 2px rgba(45,25,8,.15);
+}
+.site-header::before { left: -18px; transform: rotate(-24deg); }
+.site-header::after  { right: -18px; transform: rotate(22deg); }
+
+.brand {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 1.35rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+.main-nav a {
+  display: block;
+  padding: 10px 12px;          /* big enough to tap: at least 44px tall */
+  min-height: 44px;
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius);
+}
+.main-nav a:hover { background: rgba(30,26,22,.06); text-decoration: underline; }
+.main-nav .nav-donate { background: var(--coral); color: #fff; padding-inline: 18px; }
+.main-nav .nav-donate:hover { background: var(--coral-ink); }
+
+.menu-toggle {
+  font: inherit;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 8px 16px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+/* Phones: the nav becomes a dropdown list under the Menu button */
+@media (max-width: 760px) {
+  .main-nav { width: 100%; display: none; }
+  .main-nav.is-open { display: block; }
+  .main-nav ul { flex-direction: column; padding: 8px 0; border-top: 1px solid var(--line); }
+  .main-nav .nav-donate { text-align: center; margin-top: 6px; }
+}
+
+/* ---------- 6. Buttons and small text pieces ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 2px solid var(--ink);
+}
+.btn-ink     { background: var(--ink);   color: var(--paper); }
+.btn-coral   { background: var(--coral); color: #fff; border-color: var(--coral); }
+.btn-outline { background: transparent; color: var(--ink); }
+.btn:hover   { text-decoration: underline; }
+.btn-ink:hover     { background: #3A332C; }
+.btn-coral:hover   { background: var(--coral-ink); border-color: var(--coral-ink); }
+.btn-outline:hover { background: rgba(30,26,22,.06); }
+
+.cta-row   { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.cta-stack { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+
+.text-link { font-weight: 800; display: inline-block; padding: 6px 0; }
+
+.kicker {
+  margin: 0 0 4px;
+  font-size: .85rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+/* ---------- 7. Hero ---------- */
+.hero { padding-top: clamp(16px, 3vw, 32px); }
+
+/* The sign scene: hills + lettering laid straight onto the cork.
+   It runs edge to edge (cancelling the cork's side padding) and keeps the
+   drawing's 3:1 shape, so the letters always land on the front hill.
+   "container-type" lets the letters size themselves in cqw units:
+   1cqw = 1% of this scene's width. */
+.sign-scene {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 1200 / 400;
+  width: calc(100% + 2 * var(--gutter));
+  margin-left: calc(-1 * var(--gutter));
+}
+.hills {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* the bottom of the hills fades into the cork, so there is no hard edge */
+  -webkit-mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 80%, transparent 100%);
+}
+
+/* The oversized REACH OUT LA lettering, reused from dist/letters.
+   Its feet sit 22% up from the bottom: the top of the front hill in hills.svg. */
+.lettering {
+  --h: 10.5cqw;
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 22%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: calc(var(--h) * .28);
+  flex-wrap: nowrap;
+  margin: 0;
+  filter: drop-shadow(0 3px 3px rgba(45, 25, 8, .35));
+}
+.lettering .word { display: flex; }
+.lettering img {
+  height: var(--h); width: auto; padding: 0 1px;
+  transform-origin: center bottom;   /* letters pivot at their feet (see wiggle.js) */
+  will-change: translate, rotate;
+}
+
+.hero-board {
+  max-width: var(--max);
+  margin: clamp(4px, 1vw, 12px) auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: clamp(28px, 4vw, 48px);
+  align-items: center;
+}
+.lead { font-size: clamp(1.3rem, 2.6vw, 1.6rem); font-weight: 700; line-height: 1.4; }
+
+.hero-photos {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  padding: 18px 8px 56px;
+}
+/* second photo overlaps the first a little, like prints pinned in a hurry */
+.hero-photos .photo:nth-child(2) { margin: 72px 0 0 -28px; z-index: 1; }
+.scrap-hero { position: absolute; left: 16px; bottom: 4px; --tilt: -4deg; }
+
+/* ---------- 8. Sections ---------- */
+.section {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-top: clamp(48px, 7vw, 88px);
+  position: relative;
+}
+
+.letter { max-width: 760px; margin: 0 auto; }
+
+/* Board of pinned cards (programs + stories) */
+.board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(26px, 3.5vw, 40px);
+  align-items: start;
+}
+.card { padding: 12px; }
+.card-photo { margin: 0 0 4px; background: #fff; }
+.card-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 30%; }
+.card-body { padding: 12px 10px 6px; }
+.card-body p:last-child { margin-bottom: 0; }
+
+.link-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-weight: 700; }
+.link-list a { display: inline-block; padding: 4px 0; }
+
+/* ---------- 9. Get involved: flyers ---------- */
+.scrap-involved { position: absolute; right: 0; top: clamp(60px, 8vw, 100px); --tilt: 3deg; }
+
+.flyers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(22px, 3vw, 36px);
+  align-items: start;
+}
+.flyer {
+  display: flex;
+  flex-direction: column;
+  padding: 26px 22px 24px;
+}
+.flyer h3 { font-size: 1.75rem; margin-bottom: 10px; }
+
+/* Tear-off tabs along the bottom of the Volunteer flyer */
+.tear-tabs {
+  display: flex;
+  margin: 22px -22px -24px;
+  border-top: 2px dashed rgba(30,26,22,.3);
+}
+.tear-tabs span {
+  flex: 1;
+  height: 104px;
+  padding: 8px 0;
+  writing-mode: vertical-rl;
+  text-align: center;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--ink-2);
+  border-left: 1px dashed rgba(30,26,22,.3);
+}
+.tear-tabs span:first-child { border-left: 0; }
+.tear-tabs span:nth-child(3) { visibility: hidden; }   /* someone already took one */
+
+/* ---------- 10. Footer: a note pinned at the bottom ---------- */
+.site-footer {
+  max-width: var(--max);
+  margin: clamp(56px, 8vw, 96px) auto 0;
+  font-size: .95rem;
+  color: var(--ink-2);
+}
+.site-footer ul { list-style: none; margin: 0 0 14px; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.site-footer nav a { display: inline-block; padding: 8px 0; color: var(--ink); font-weight: 700; }
+.site-footer p { margin: 0; }
+
+/* ---------- 11. Gentle hover: a pinned item lifts a little ---------- */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card, .flyer, .photo { transition: transform .25s ease, box-shadow .25s ease; }
+  .card:hover, .flyer:hover, .photo:hover {
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow: 0 2px 3px rgba(45,25,8,.25), 0 18px 30px -10px rgba(45,25,8,.55);
+  }
+}
+
+/* ---------- 12. Tablet and phone layouts ---------- */
+@media (max-width: 900px) {
+  .hero-board { grid-template-columns: 1fr; }
+  .flyers { grid-template-columns: 1fr; max-width: 560px; }
+  .scrap-involved { position: static; margin: -14px 0 24px; }
+}
+
+@media (max-width: 520px) {
+  body { font-size: 1.0625rem; }   /* 17px */
+  .frame { border-radius: 4px; }
+  /* calmer tilts on small screens so text stays easy to read */
+  .note, .card, .flyer, .photo, .needs-info, .label, .paper-strip {
+    transform: rotate(calc(var(--tilt, 0deg) * .5));
+  }
+  .site-header::before, .site-header::after { display: none; }
+  .hero-photos { padding-bottom: 52px; }
+  .hero-photos .photo { padding: 6px 6px 10px; }
+  .hero-photos .photo:nth-child(2) { margin: 36px 0 0 -16px; }
+  .cta-row .btn { flex: 1 1 100%; }
+  .label::before { left: -8px; width: 40px; }
+}
+
+/* ---------- The civfix wordmark (same as the app's logo) ----------
+   Baloo 2 ExtraBold, tight letter spacing, one color per letter.
+   Colors are civfix's own light-mode logo colors from civfix.org. */
+.cf-word {
+  font-family: 'Baloo 2', var(--font-head);
+  font-weight: 800;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+}
+.cf-word .s1, .cf-word .s6 { color: #F0685C; }   /* c, x  */
+.cf-word .s2 { color: #B98A14; }                  /* i     */
+.cf-word .s3 { color: #63A45A; }                  /* v     */
+.cf-word .s4 { color: #74A9D8; }                  /* f     */
+.cf-word .s5 { color: #9B7ED9; }                  /* i     */
+/* links: keep the link's underline in its own color */
+a .cf-word { text-decoration: inherit; }
+/* in running text, a touch bigger so the light letters stay easy to read */
+p .cf-word, li .cf-word { font-size: 1.12em; line-height: 1; }
+

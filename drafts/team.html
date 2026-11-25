@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Team — Reach Out LA (draft)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600&family=Manrope:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="home.css?v=3">
+  <link rel="stylesheet" href="team.css?v=7">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <p class="draft-banner" role="note">
+    <strong>Draft team page</strong> — not the live site.
+  </p>
+
+  <!-- The little paper people: faceless, with arms and legs, in four poses.
+       Each pose is drawn twice: a cream "cut edge" underneath, then the color on top.
+       team.js reuses these, and currentColor gives each one its own color. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- standing -->
+      <symbol id="p-stand" viewBox="0 0 40 60">
+        <g fill="none" stroke-linecap="round" stroke="#FFFCF5" stroke-width="9">
+          <path d="M14,21 L8,36 M26,21 L32,36 M17,37 L15,55 M23,37 L25,55"/>
+        </g>
+        <circle cx="20" cy="9" r="8.6" fill="#FFFCF5"/>
+        <rect x="11.5" y="15.5" width="17" height="25" rx="7.5" fill="#FFFCF5"/>
+        <g fill="none" stroke-linecap="round" stroke="currentColor" stroke-width="5.5">
+          <path d="M14,21 L8,36 M26,21 L32,36 M17,37 L15,55 M23,37 L25,55"/>
+        </g>
+        <circle cx="20" cy="9" r="7" fill="currentColor"/>
+        <rect x="13" y="17" width="14" height="22" rx="6" fill="currentColor"/>
+      </symbol>
+      <!-- waving -->
+      <symbol id="p-wave" viewBox="0 0 40 60">
+        <g fill="none" stroke-linecap="round" stroke="#FFFCF5" stroke-width="9">
+          <path d="M14,21 L8,36 M26,21 L34,7 M17,37 L15,55 M23,37 L25,55"/>
+        </g>
+        <circle cx="20" cy="9" r="8.6" fill="#FFFCF5"/>
+        <rect x="11.5" y="15.5" width="17" height="25" rx="7.5" fill="#FFFCF5"/>
+        <g fill="none" stroke-linecap="round" stroke="currentColor" stroke-width="5.5">
+          <path d="M14,21 L8,36 M26,21 L34,7 M17,37 L15,55 M23,37 L25,55"/>
+        </g>
+        <circle cx="20" cy="9" r="7" fill="currentColor"/>
+        <rect x="13" y="17" width="14" height="22" rx="6" fill="currentColor"/>
+      </symbol>
+      <!-- cheering: both arms up -->
+      <symbol id="p-cheer" viewBox="0 0 40 60">
+        <g fill="none" stroke-linecap="round" stroke="#FFFCF5" stroke-width="9">
+          <path d="M14,21 L6,7 M26,21 L34,7 M17,37 L13,55 M23,37 L27,55"/>
+        </g>
+        <circle cx="20" cy="9" r="8.6" fill="#FFFCF5"/>
+        <rect x="11.5" y="15.5" width="17" height="25" rx="7.5" fill="#FFFCF5"/>
+        <g fill="none" stroke-linecap="round" stroke="currentColor" stroke-width="5.5">
+          <path d="M14,21 L6,7 M26,21 L34,7 M17,37 L13,55 M23,37 L27,55"/>
+        </g>
+        <circle cx="20" cy="9" r="7" fill="currentColor"/>
+        <rect x="13" y="17" width="14" height="22" rx="6" fill="currentColor"/>
+      </symbol>
+      <!-- walking -->
+      <symbol id="p-walk" viewBox="0 0 40 60">
+        <g fill="none" stroke-linecap="round" stroke="#FFFCF5" stroke-width="9">
+          <path d="M14,21 L7,33 M26,21 L32,34 M17,37 L10,54 M23,37 L29,54"/>
+        </g>
+        <circle cx="20" cy="9" r="8.6" fill="#FFFCF5"/>
+        <rect x="11.5" y="15.5" width="17" height="25" rx="7.5" fill="#FFFCF5"/>
+        <g fill="none" stroke-linecap="round" stroke="currentColor" stroke-width="5.5">
+          <path d="M14,21 L7,33 M26,21 L32,34 M17,37 L10,54 M23,37 L29,54"/>
+        </g>
+        <circle cx="20" cy="9" r="7" fill="currentColor"/>
+        <rect x="13" y="17" width="14" height="22" rx="6" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="frame">
+    <div class="corkboard">
+
+      <header class="site-header paper-strip">
+        <a class="brand" href="home.html">Reach Out LA</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" hidden>Menu</button>
+        <nav id="main-nav" class="main-nav" aria-label="Main">
+          <ul>
+            <li><a href="home.html#about">About</a></li>
+            <li><a href="home.html#updates">Updates</a></li>
+            <li><a href="home.html#get-involved">Get involved</a></li>
+            <li><a href="team.html" aria-current="page">Team</a></li>
+            <li><a href="civfix.html">civfix</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="https://buy.stripe.com/14A5kC47b7XLa85fvZ9Zm00" class="nav-donate">Donate</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="team-scene" id="team-scene" aria-labelledby="team-title">
+
+          <!-- Volunteers get pinned all over this scene by team.js (decoration only) -->
+          <div class="crowd" id="crowd" aria-hidden="true"></div>
+
+          <div class="team-center">
+            <h1 id="team-title" class="label team-title" style="--tilt:-1.5deg">Meet the team</h1>
+
+            <!-- Row 1: Roman, Theo, Rudra. Row 2: Andrew, Knox, Alexandria. -->
+            <ul class="team-grid">
+              <li class="member has-bio member--lead" style="--tilt:0.8deg">
+                <span class="pin" style="--pin:var(--pin-coral)"></span>
+                <img class="member-photo" src="../dist/images/about-president.webp" width="208" height="208" alt="Portrait of Roman Aytur">
+                <h2 class="member-name">Roman Aytur</h2>
+                <p class="member-role">President</p>
+                <button class="bio-btn" type="button" data-bio="bio-roman" aria-haspopup="dialog">Read bio</button>
+              </li>
+              <li class="member has-bio" style="--tilt:-1.2deg">
+                <span class="pin" style="--pin:var(--pin-blue)"></span>
+                <img class="member-photo" src="../dist/images/about-eng-1.webp" width="157" height="208" alt="Portrait of Theodore Bong">
+                <h2 class="member-name">Theodore Bong</h2>
+                <p class="member-role">Founding Engineer</p>
+                <button class="bio-btn" type="button" data-bio="bio-theo" aria-haspopup="dialog">Read bio</button>
+              </li>
+              <li class="member has-bio" style="--tilt:2.4deg">
+                <span class="pin" style="--pin:var(--pin-coral)"></span>
+                <img class="member-photo" src="../dist/images/about-eng-2.webp" width="208" height="208" alt="Portrait of Rudra Patel">
+                <h2 class="member-name">Rudra Patel</h2>
+                <p class="member-role">Founding Engineer</p>
+                <button class="bio-btn" type="button" data-bio="bio-rudra" aria-haspopup="dialog">Read bio</button>
+              </li>
+              <li class="member has-bio" style="--tilt:-2.2deg">
+                <span class="pin" style="--pin:var(--pin-orange)"></span>
+                <img class="member-photo" src="images/team/andrew-tijerino.jpg" width="606" height="860" alt="Portrait of Andrew Tijerino">
+                <h2 class="member-name">Andrew Tijerino</h2>
+                <p class="member-role">VP, Unhoused Operations</p>
+                <button class="bio-btn" type="button" data-bio="bio-andrew" aria-haspopup="dialog">Read bio</button>
+              </li>
+              <li class="member" style="--tilt:2deg">
+                <span class="pin" style="--pin:var(--pin-yellow)"></span>
+                <img class="member-photo" src="images/team/knox-weggler.jpg?v=3" width="600" height="600" alt="Portrait of Knox Weggler">
+                <h2 class="member-name">Knox Weggler</h2>
+                <p class="member-role">Director of Marketing</p>
+              </li>
+              <li class="member" style="--tilt:1.6deg">
+                <span class="pin" style="--pin:var(--pin-green)"></span>
+                <img class="member-photo" src="images/team/alexandria-taylor.webp" width="600" height="840" alt="Portrait of Alexandria Taylor">
+                <h2 class="member-name">Alexandria Taylor</h2>
+                <p class="member-role">Operations</p>
+              </li>
+            </ul>
+
+            <div class="note you-note" style="--tilt:-0.6deg">
+              <span class="tape-strip"></span>
+              <h2>Thank you to our volunteers</h2>
+              <p>
+                Our street outreach and research happen because volunteers give their time. Reach Out started
+                with a group of high school students who decided to show up, and that is still how the work gets
+                done. To everyone who has joined us along the way: thank&nbsp;you.
+              </p>
+              <p>If you’d like to help, we’d be glad to have you. Every volunteer opportunity, from cleanups to surveying, is on civfix.</p>
+              <div class="cta-row">
+                <a class="btn btn-ink" href="https://civfix.org/orgs/civfix">Volunteer on civfix</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Bios: open from the team cards (team-bios.js). Native <dialog>: Escape closes, focus returns. -->
+        <dialog class="bio-dialog" id="bio-roman" aria-labelledby="bio-roman-title">
+          <span class="pin" style="--pin:var(--pin-coral)"></span>
+          <button class="bio-close" type="button" aria-label="Close Roman’s bio">×</button>
+          <p class="bio-role">President</p>
+          <h2 id="bio-roman-title">Roman Aytur</h2>
+            <p>Roman founded the organization while in high school with the mission of combating rampant homelessness in Los Angeles through the use of technology and cooperation with local governments. Roman has extensive experience working alongside nonprofits through his volunteer work at the St. Francis Center.</p>
+            <p>He also led the campaign for unhoused representation in the Los Angeles City Charter reform, partnering with Rewrite LA to include unhoused Angelenos in civic assemblies. His work with The California Endowment and the Matt Mahan for Governor campaign has opened the door for new legislation to make the lives of all Californians better.</p>
+            <p>Roman saw a dire need for a more transparent, efficient way to organize cleanups and connect residents with their local governments about the issues affecting their communities. He pitched the idea for civfix, raised funds and recruited the engineering team, bringing the project to life.</p>
+            <p class="bio-email"><a href="mailto:roman@reachoutla.org">Email Roman</a></p>
+        </dialog>
+        <dialog class="bio-dialog" id="bio-theo" aria-labelledby="bio-theo-title">
+          <span class="pin" style="--pin:var(--pin-coral)"></span>
+          <button class="bio-close" type="button" aria-label="Close Theo’s bio">×</button>
+          <p class="bio-role">Founding Engineer</p>
+          <h2 id="bio-theo-title">Theodore Bong</h2>
+            <p>Theo is studying physics at UC Berkeley. He is an experienced programmer who has worked on web and video game projects for more than six years.</p>
+            <p>Focused on software design and user experience, Theo manages front-end software for the civfix app and information technology for Reach Out LA.</p>
+            <p class="bio-email"><a href="mailto:theo@reachoutla.org">Email Theo</a></p>
+        </dialog>
+        <dialog class="bio-dialog" id="bio-rudra" aria-labelledby="bio-rudra-title">
+          <span class="pin" style="--pin:var(--pin-coral)"></span>
+          <button class="bio-close" type="button" aria-label="Close Rudra’s bio">×</button>
+          <p class="bio-role">Founding Engineer</p>
+          <h2 id="bio-rudra-title">Rudra Patel</h2>
+            <p>Rudra is a computer science student on a full-ride academic scholarship at the University of Kentucky. He is a software engineer with more than eight years of experience, publishing programs downloaded by more than 40,000 people and developing for video game communities with millions of unique players.</p>
+            <p>Rudra manages the infrastructure, back-end software and DevOps workflows behind the civfix app, along with information technology for Reach Out LA.</p>
+            <p class="bio-email"><a href="mailto:rudra@reachoutla.org">Email Rudra</a></p>
+        </dialog>
+        <dialog class="bio-dialog" id="bio-andrew" aria-labelledby="bio-andrew-title">
+          <span class="pin" style="--pin:var(--pin-orange)"></span>
+          <button class="bio-close" type="button" aria-label="Close Andrew’s bio">×</button>
+          <p class="bio-role">VP, Unhoused Operations</p>
+          <h2 id="bio-andrew-title">Andrew Tijerino</h2>
+            <p>Andrew is vice president of unhoused operations and a co-founder of Reach Out LA, where he has helped bring our homeless outreach in Los Angeles to life, from building the organization’s website to creating voter registration materials for unhoused individuals.</p>
+            <p>He also served as a moderator for the LA City Charter Civic Assembly, part of the city’s first major charter overhaul in more than 25 years. There, he recruited unhoused delegates to take part in the assembly and facilitated small-group discussions to help make sure their voices shaped the city’s governing document.</p>
+            <p>He studies computer science at UC Irvine. When he’s not coding or writing, he’s channeling that same care for people into work like this.</p>
+            <p class="bio-email"><a href="mailto:andrew@reachoutla.org">Email Andrew</a></p>
+        </dialog>
+      </main>
+
+      <footer class="site-footer note" style="--tilt:0.3deg">
+        <span class="tape-strip"></span>
+        <nav aria-label="Footer">
+          <ul>
+            <li><a href="home.html#about">About</a></li>
+            <li><a href="home.html#updates">Updates</a></li>
+            <li><a href="home.html#get-involved">Get involved</a></li>
+            <li><a href="team.html" aria-current="page">Team</a></li>
+            <li><a href="civfix.html">civfix</a></li>
+            <li><a href="press.html">Press</a></li>
+            <li><a href="https://buy.stripe.com/14A5kC47b7XLa85fvZ9Zm00">Donate</a></li>
+          </ul>
+        </nav>
+        <p>
+          Reach Out Los Angeles INC is a registered 501(c)(3) nonprofit organization.<br>
+          EIN 41-2454206 · 3214 Veteran Ave, Los Angeles, CA 90034 ·
+          <a href="mailto:roman@reachoutla.org">roman@reachoutla.org</a>
+        </p>
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="menu.js?v=3"></script>
+  <script src="wordmark.js?v=5"></script>
+  <script src="team-bios.js?v=2"></script>
+  <script src="team.js?v=3"></script>
+  <script src="wiggle.js?v=3"></script>
+</body>
+</html>

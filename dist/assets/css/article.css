@@ -1,0 +1,265 @@
+/* ==========================================================
+   Updates DRAFT — article + updates list, on top of home.css.
+   An article is one long sheet of paper pinned to the board,
+   set for comfortable reading (about 65 characters per line).
+   ========================================================== */
+
+.article-main { max-width: 860px; margin: 0 auto; padding-top: clamp(28px, 4vw, 48px); }
+.back-link { margin: 0 0 18px; }
+.back-link a {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  font-weight: 800;
+  color: var(--ink);
+  text-decoration: none;
+}
+.back-link a:hover { text-decoration: underline; }
+
+.article-sheet {
+  position: relative;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  padding: clamp(28px, 6vw, 64px) clamp(20px, 6vw, 72px);
+  transform: rotate(-0.3deg);
+}
+
+.article-head { max-width: 640px; margin: 0 auto 8px; }
+.article-kicker {
+  margin: 0 0 8px;
+  font-size: .85rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--coral-ink);
+}
+.article-head h1 { font-size: clamp(2rem, 5vw, 2.9rem); line-height: 1.08; margin-bottom: .4em; }
+.article-dek { font-size: clamp(1.15rem, 2.2vw, 1.3rem); line-height: 1.5; color: var(--ink-2); }
+.article-meta {
+  margin: 0;
+  padding-bottom: 20px;
+  border-bottom: 2px dashed var(--line);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+.article-body { max-width: 640px; margin: 28px auto 0; }
+.article-body h2 { font-size: clamp(1.5rem, 3vw, 1.85rem); margin: 1.6em 0 .5em; }
+.article-body p { line-height: 1.7; }
+.article-body sup a { font-weight: 800; text-decoration: none; padding: 0 2px; }
+.article-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* "Needs info" notes inside the article */
+.article-note {
+  max-width: 640px;
+  margin: 22px auto;
+  transform: rotate(var(--tilt, 0deg));
+}
+.article-note p:last-child { margin-bottom: 0; }
+
+/* ---------- Bar chart (one series, one color, value labels in ink) ---------- */
+.bar-chart {
+  margin: 28px 0;
+  padding: 18px 18px 14px;
+  background: #FBF6EA;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.bar-chart figcaption { margin-bottom: 14px; line-height: 1.45; }
+.bar-chart figcaption strong { display: block; font-family: var(--font-head); font-size: 1.2rem; }
+.bar-chart table { width: 100%; border-collapse: collapse; }
+.bar-chart th {
+  width: 11.5em;
+  padding: 7px 12px 7px 0;
+  text-align: left;
+  font-weight: 700;
+  font-size: .95rem;
+  vertical-align: middle;
+}
+.bar-chart td { padding: 7px 0; display: flex; align-items: center; gap: 10px; }
+.bar-chart .bar {
+  display: block;
+  height: 22px;
+  width: calc(var(--v) * 1%);
+  max-width: calc(100% - 4em);
+  background: var(--coral-ink);
+  border-radius: 0 4px 4px 0;   /* rounded data-end, flat at the baseline */
+}
+.bar-chart .val { font-weight: 800; font-variant-numeric: tabular-nums; }
+.bar-chart tr:hover .bar { filter: brightness(1.15); }
+.chart-source { margin: 10px 0 0; font-size: .82rem; color: var(--ink-2); }
+
+/* ---------- Sources ---------- */
+.article-sources {
+  max-width: 640px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 2px dashed var(--line);
+  font-size: .92rem;
+}
+.article-sources h2 { font-size: 1.3rem; }
+.article-sources ol { padding-left: 1.3em; margin: 0; }
+.article-sources li { margin-bottom: 10px; line-height: 1.55; }
+.article-sources li:target { background: var(--sticky); }
+
+/* ---------- Updates list page ---------- */
+.updates-main { max-width: var(--max); margin: 0 auto; padding-top: clamp(36px, 5vw, 64px); }
+.updates-scrap { margin: -14px 0 32px 10px; --tilt: -2deg; }
+.updates-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: clamp(24px, 3.5vw, 40px);
+  align-items: start;
+}
+
+/* An update card, shared by the updates page and the homepage */
+.update-card {
+  position: relative;
+  padding: 24px 24px 22px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  transform: rotate(var(--tilt, 0deg));
+}
+.update-card .article-kicker { font-size: .78rem; }
+.update-card :is(h2, h3) { font-size: 1.45rem; line-height: 1.15; margin-bottom: .45em; }
+.update-card :is(h2, h3) a { color: var(--ink); text-decoration: none; }
+.update-card :is(h2, h3) a:hover { text-decoration: underline; }
+/* make the whole card clickable through the headline link */
+.update-card :is(h2, h3) a::after { content: ""; position: absolute; inset: 0; }
+.update-card p { margin-bottom: .8em; }
+.update-card .update-date { margin: 0; font-size: .88rem; font-weight: 700; color: var(--ink-2); }
+.update-card:focus-within { outline: 3px solid var(--ink); outline-offset: 4px; }
+
+@media (max-width: 560px) {
+  .article-sheet { transform: none; }
+  .bar-chart th { width: auto; display: block; padding-bottom: 2px; }
+  .bar-chart tr { display: block; margin-bottom: 8px; }
+  .bar-chart td { padding-top: 0; }
+}
+
+/* ---------- Homepage: latest update + "see all" flyer ---------- */
+.home-updates { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.all-updates-link {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 26px 24px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+}
+.all-updates-link:hover .all-updates-title { text-decoration: underline; }
+.all-updates-title { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; color: var(--coral-ink); }
+@media (max-width: 700px) { .home-updates { grid-template-columns: 1fr; } }
+
+/* "Updated" line under the byline */
+.article-updated { margin: 8px 0 0; font-size: .9rem; font-style: italic; color: var(--ink-2); }
+.article-meta + .article-updated { margin-top: -12px; padding-bottom: 20px; border-bottom: 2px dashed var(--line); }
+.article-head .article-meta:has(+ .article-updated) { border-bottom: 0; }
+
+/* Pull quote */
+.pull-quote {
+  margin: 32px 0;
+  padding: 22px 26px 18px;
+  background: #FBF6EA;
+  border-left: 6px solid var(--coral);
+  border-radius: 0 6px 6px 0;
+}
+.pull-quote blockquote { margin: 0; }
+.pull-quote blockquote p {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: clamp(1.2rem, 2.4vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.45;
+}
+.pull-quote figcaption { margin-top: 12px; font-size: .95rem; font-weight: 700; color: var(--ink-2); }
+.pull-quote figcaption::before { content: "— "; }
+
+/* Donate box at the end of an article */
+.support-box {
+  position: relative;
+  margin: 36px 0 8px;
+  padding: 26px 26px 24px;
+  background: var(--sticky);
+  box-shadow: var(--shadow);
+  transform: rotate(-0.6deg);
+}
+.support-box h2 { margin: 0 0 .35em; font-size: clamp(1.5rem, 3vw, 1.8rem); }
+.support-box p { margin-bottom: 1em; }
+.support-box a:not(.btn) { color: var(--ink); font-weight: 800; }
+
+/* Photo waiting to be added: a dashed print-shaped frame */
+.photo-slot {
+  margin: 30px auto;
+  max-width: 520px;
+  padding: 10px 10px 12px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  transform: rotate(var(--tilt, 0deg));
+}
+.photo-slot-frame {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  border: 2px dashed rgba(30, 26, 22, .3);
+  background: var(--paper-2);
+  font-family: var(--font-hand);
+  font-size: 1.6rem;
+  color: var(--ink-2);
+}
+.photo-slot figcaption { margin-top: 8px; font-size: .88rem; color: var(--ink-2); }
+.date-tbd { background: var(--sticky); padding: 0 6px; border-radius: 2px; }
+
+/* A photo print inside an article */
+.article-photo {
+  margin: 30px auto;
+  max-width: 420px;
+  padding: 10px 10px 12px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  transform: rotate(var(--tilt, 0deg));
+}
+.article-photo img { width: 100%; height: auto; }
+.article-photo figcaption { margin-top: 8px; font-size: .9rem; line-height: 1.45; color: var(--ink-2); }
+@media (max-width: 560px) { .article-photo { transform: rotate(calc(var(--tilt, 0deg) * .5)); } }
+
+/* App screenshots inside an article: narrower prints */
+.article-photo.phone-shot { max-width: 260px; }
+.article-photo.phone-shot img { border-radius: 10px; }
+
+/* App store badges inside an article */
+.article-body .badges { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.article-body .badges a { display: inline-block; border-radius: 8px; }
+.article-body .badges img { height: 40px; width: auto; }
+
+/* An update card with a photo on top (e.g. the civfix launch): taller than the others */
+.update-card--photo { padding: 12px 12px 20px; }
+.update-card--photo .update-photo {
+  margin: 0 0 14px;
+  background: #F4F5F4;   /* matches the logo image's own background */
+  border: 1px solid var(--line);
+}
+.update-card--photo .update-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;     /* trims the logo's empty margins, not the logo */
+}
+.update-card--photo .article-kicker,
+.update-card--photo :is(h2, h3),
+.update-card--photo .update-date { padding: 0 12px; }
+.update-card--photo :is(h2, h3) { font-size: 1.6rem; }
+
+/* "Get to know us" links on the About page */
+.about-links { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 4px; }
+.about-links a { display: inline-block; padding: 6px 0; font-weight: 800; }
+
+/* 404 page note */
+.notfound-note { max-width: 640px; margin: clamp(24px, 5vw, 56px) auto 0; }
+.notfound-note h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.1; margin-bottom: .4em; }
